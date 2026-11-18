@@ -14,6 +14,17 @@
     "V3-LM2-ob-wait-7fmj.dc.html": 700,
     "V3-LM2-B2c-zgrf.dc.html": 700,
     "P5-B2c.dc.html": 700,
-    "V3-BLA-4-qbp2.dc.html": 780
-  }
+    "V3-BLA-4-qbp2.dc.html": 780,
+    "P5W-1.dc.html": 760
+  },
+  "exclude": [
+    "P5F-GA4.dc.html",
+    "P5F-GA5.dc.html",
+    "P5F-GA6.dc.html",
+    "P5F-SH6.dc.html",
+    "P5F-SH7.dc.html",
+    "P5F-SH8.dc.html",
+    "P5F-SH9.dc.html",
+    "P5F-SH10.dc.html"
+  ]
 }

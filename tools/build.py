@@ -16,6 +16,8 @@ import glob, json, os, re, shutil, sys
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = json.load(open(os.path.join(REPO, "tools", "config.json")))
 BLOB = re.compile(r"/_blob/([a-f0-9]{32})")
+LINK = re.compile(r'href="([A-Za-z0-9_-]+\.dc\.html)"')
+ANY = re.compile(r"([A-Za-z0-9_-]+\.dc\.html)")  # links also sit in scripts, not only in href
 BARE = re.compile(r"(?<![a-zA-Z0-9/._-])([a-f0-9]{32})(?![a-zA-Z0-9._-])")
 
 
@@ -24,8 +26,9 @@ def page_boards(raw):
     pid = CFG["canvas_page_id"]
     w = CFG.get("screen_width")
     # only phone-size boards; wide boards (pattern sheets, palette comparisons) are not screens
+    skip = set(CFG.get("exclude", []))  # screens on the page that are left out of the prototype
     return [k for k in canvas["order"] if canvas["boards"][k].get("page") == pid
-            and (not w or canvas["boards"][k].get("w") == w)]
+            and (not w or canvas["boards"][k].get("w") == w) and k not in skip]
 
 
 def head_block(min_h):
@@ -68,10 +71,34 @@ def main():
         print("IMAGES", " ".join(sorted(blobs)))
         return
 
-    # images: find each downloaded blob by id
+    # screens that left the canvas but are still linked from a screen on the page stay
+    # as they are in the repo (with their images), so taps that worked keep working
+    kept, todo = {}, []
+    for b in boards:
+        todo += ANY.findall(open(os.path.join(raw, "project", b)).read())
+    while todo:
+        t = todo.pop()
+        old = os.path.join(REPO, t)
+        if t in boards or t in kept or t in CFG.get("exclude", []) or not os.path.exists(old):
+            continue
+        kept[t] = open(old).read()
+        todo += ANY.findall(kept[t])
     img_dir = os.path.join(REPO, "img")
+    kept_img = {}
+    for t, body in kept.items():
+        for name in set(re.findall(r"([a-f0-9]{32}\.[a-z0-9]+)", body)):
+            if os.path.exists(os.path.join(img_dir, name)):
+                kept_img[name] = open(os.path.join(img_dir, name), "rb").read()
+    live = set(boards) | set(kept)
+
+    def unlink(html):  # a link to a screen that is not in the prototype becomes a dead tap, not a 404
+        return LINK.sub(lambda m: m.group(0) if m.group(1) in live else 'data-off="%s"' % m.group(1), html)
+
+    # images: find each downloaded blob by id
     shutil.rmtree(img_dir, ignore_errors=True)
     os.makedirs(img_dir)
+    for name, data in kept_img.items():
+        open(os.path.join(img_dir, name), "wb").write(data)
     img_name = {}
     for bid in sorted(blobs):
         hits = [p for p in glob.glob(os.path.join(raw, "**", bid + ".*"), recursive=True)]
@@ -104,7 +131,11 @@ def main():
             s = s[:j] + root.replace("height: 844px", "height: var(--h, 844px)") + s[k:]
         else:
             print("WARN %s: root is not 844px tall, left at its own size" % b)
-        open(os.path.join(REPO, os.path.basename(b)), "w").write(s)
+        open(os.path.join(REPO, os.path.basename(b)), "w").write(unlink(s))
+    for t, body in kept.items():
+        open(os.path.join(REPO, t), "w").write(unlink(body))
+    if kept:
+        print("KEPT (no longer on the canvas, still linked): " + " ".join(sorted(kept)))
 
     start = CFG["start_screen"]
     if start not in boards:
@@ -117,6 +148,16 @@ def main():
             t = re.sub(r"location\.replace\('[^']*'\)", "location.replace('%s')" % start, t)
             open(path, "w").write(t)
     print("BUILT %d screens, %d images" % (len(boards), len(blobs)))
+    reach, todo = set(), [start]
+    while todo:
+        t = todo.pop()
+        if t in reach or not os.path.exists(os.path.join(REPO, t)):
+            continue
+        reach.add(t)
+        todo += ANY.findall(open(os.path.join(REPO, t)).read().replace("data-off=", ""))
+    lost = [b for b in boards if b not in reach]
+    if lost:
+        print("NOT REACHABLE by tapping from the start screen: " + " ".join(lost))
 
 
 if __name__ == "__main__":
