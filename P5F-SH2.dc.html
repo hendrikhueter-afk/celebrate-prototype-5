@@ -38,7 +38,7 @@ a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
-  __who() { const d = { lukas: false, rosi: true, karl: true }; try { const o = JSON.parse(window.sessionStorage.getItem('p5fwho') || 'null'); if (o && typeof o === 'object') { ['lukas', 'rosi', 'karl'].forEach(function (k) { if (typeof o[k] === 'boolean') d[k] = o[k]; }); } if (window.sessionStorage.getItem('p5frosi') === 'out') d.rosi = false; } catch (e) {} return d; }
+  __who() { const d = { lukas: true, rosi: true, karl: true }; try { const o = JSON.parse(window.sessionStorage.getItem('p5fwho') || 'null'); if (o && typeof o === 'object') { ['lukas', 'rosi', 'karl'].forEach(function (k) { if (typeof o[k] === 'boolean') d[k] = o[k]; }); } if (window.sessionStorage.getItem('p5frosi') === 'out') d.rosi = false; } catch (e) {} return d; }
   __from() { try { const r = String(document.referrer || '').split('#')[0].split('?')[0].split('/').pop() || ''; if (r === 'P5F-SH4.dc.html') return r; } catch (e) {} return ''; }
   constructor(props) { super(props); this.state = { who: this.__who(), from: this.__from() }; }
   __tap(k) { const w = Object.assign({}, this.state.who); w[k] = !w[k]; this.setState({ who: w }); }

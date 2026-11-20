@@ -15,86 +15,277 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;family=Caveat:wght@600;700&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
 <style>
 img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
 body{margin:0;background:#FFFFFF}
 a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
 .scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
 .ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
-.h1{margin:0;font-size:23px;line-height:28px;font-weight:700;color:#2E1712;letter-spacing:-0.01em}
-.h2{margin:0 0 12px;font-size:19px;line-height:24px;font-weight:700;color:#2E1712}
-.meta{font-size:14px;line-height:19px;color:#7A6259}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
 .btn:hover{color:#ffffff}
 .soft{background:#F2F1F0;color:#2E1712}.soft:hover{color:#2E1712}
-.rowb{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:6px 0;border:0;background:none;font-family:inherit;font-size:15px;color:#2E1712;text-align:left;cursor:pointer;box-sizing:border-box;text-decoration:none}
-.step{width:28px;height:28px;border-radius:50%;border:0;background:#F2F1F0;color:#2E1712;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;font-family:inherit}
-.field{display:block;width:100%;height:52px;padding:0 16px;border-radius:14px;border:1.5px solid #E2D9D6;background:#FFFFFF;box-sizing:border-box;font:inherit;font-size:16px;color:#2E1712;outline:0}
-.field:focus{border:2px solid #4E2018}
-.lbl{display:block;margin:0 0 6px 2px;font-size:13px;line-height:17px;font-weight:500;color:#7A6259}
-.sheet{position:relative;display:block;background:#ffffff;border-radius:2px;box-shadow:0 4px 10px rgba(0,0,0,0.16)}
-.flat{box-shadow:0 6px 14px rgba(0,0,0,0.14)}
-.ring{position:absolute;left:8px;right:8px;top:-3px;height:6px;background-image:radial-gradient(circle,#3A3A3A 1.2px,transparent 1.5px);background-size:7px 6px;background-position:center;z-index:1}
-.dates{position:absolute;display:block;background-image:radial-gradient(circle,#C9C9C9 0.9px,transparent 1.2px);background-size:9px 7px}
-span.ph{position:absolute;display:block;overflow:hidden}span.ph img{width:100%;height:100%;object-fit:cover;display:block}
 img.ph{display:block;width:100%;height:100%;object-fit:cover}
-@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.12)}100%{transform:scale(1)}}
-.pop{animation:pop 420ms cubic-bezier(0.2,0.8,0.2,1) 250ms both}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.rise{animation:rise 260ms ease-out both}
-@media (prefers-reduced-motion: reduce){.pop,.rise{animation:none}}
+img.fc{position:absolute;height:auto;max-width:none;display:block}
+.face{display:block;flex-shrink:0;position:relative;overflow:hidden;border-radius:50%;background:#E2D9D6}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2E1712;flex-shrink:0}
+.up{position:absolute;left:60px;right:104px;top:50px;height:44px;z-index:6;display:flex;align-items:center;gap:10px}
+.upn{display:block;font-size:16px;line-height:20px;font-weight:700;color:#2E1712;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.upd{display:block;font-size:14px;line-height:18px;color:#7A6259;white-space:nowrap}
+.acts{display:flex;align-items:center;padding:4px 8px 0}
+.cnt{display:flex;align-items:center;height:44px;min-width:24px;padding:0 10px 0 2px;margin-left:-6px;font-size:16px;font-weight:500;color:#2E1712}
+.cms{display:flex;flex-direction:column;gap:16px;padding:8px 20px 0}
+.cmh{display:flex;align-items:baseline;gap:8px}
+.cmn{font-size:16px;line-height:22px;font-weight:700;color:#2E1712}
+.cmt{font-size:14px;line-height:18px;color:#7A6259}
+.cmx{margin:2px 0 0;font-size:16px;line-height:22px;color:#2E1712}
+.cbar{position:absolute;left:0;right:0;bottom:0;height:84px;box-sizing:border-box;padding:8px 16px 0;background:#FFFFFF;border-top:1px solid #F2F1F0;z-index:6}
+.cin{display:flex;align-items:center;gap:6px;height:44px;border-radius:22px;background:#F2F1F0;padding:0 5px 0 18px}
+.cin input{flex:1;min-width:0;height:44px;padding:0;border:0;background:transparent;font:inherit;font-size:16px;color:#2E1712;outline:0}
+.cin input::placeholder{color:#7A6259;opacity:1}
+.send{width:34px;height:34px;border-radius:50%;background:#4E2018;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.send:hover{color:#FFFFFF}
+.scrim{position:absolute;inset:0;z-index:10;display:block;background:rgba(46,23,18,0.32)}
+.bs{position:absolute;z-index:11;left:0;right:0;bottom:0;background:#FFFFFF;color:#2E1712;border-radius:28px 28px 0 0;padding:14px 20px 34px;box-shadow:0 -12px 40px rgba(0,0,0,0.18)}
+.grab{display:block;width:40px;height:5px;border-radius:999px;background:#D9D5D2;margin:0 auto 10px}
+.bsh{display:flex;align-items:center;gap:10px;height:44px;margin-bottom:4px;color:#2E1712}
+.bst{margin:0;font-size:20px;line-height:26px;font-weight:700;color:#2E1712}
+.who{display:flex;align-items:center;gap:14px;min-height:56px;font-size:16px;font-weight:500;color:#2E1712}
+.bsl{margin:6px 0 0;font-size:16px;line-height:22px;color:#7A6259}
+.bsb{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.gr:not(:has(> :nth-child(3))){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.gr:not(:has(> :nth-child(2))){grid-template-columns:minmax(0,1fr)!important}
+.gr>:only-child{aspect-ratio:3 / 2!important;border-radius:16px!important}
+.gr:empty{display:none}
+.row{display:flex;align-items:center;min-height:64px}
+.ro{flex:1;min-width:0;display:flex;align-items:center;gap:14px;min-height:64px;font-size:16px;font-weight:500;color:#2E1712}
+.th{width:44px;height:44px;border-radius:10px;overflow:hidden;display:block;flex-shrink:0;background:#E8E5E3}
+.rn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chev{width:18px;height:18px;margin-left:-8px;color:#7A6259}
+.tg{width:56px;height:56px;display:flex;align-items:center;justify-content:flex-end;flex-shrink:0}
+.ck{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#FFFFFF;transition:background 160ms ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.bs{animation:up 220ms cubic-bezier(0.2,0.8,0.2,1) both}.scrim{animation:fade 180ms ease-out both}
+@media (prefers-reduced-motion: reduce){.bs,.scrim{animation:none}}
 </style>
 </helmet>
 <div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
 
-<a href="{{back}}" aria-label="Zurück" style="position: absolute; left: 12px; top: 50px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712; z-index: 6"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M15 5l-7 7 7 7"></path></svg></a>
-<h1 style="position: absolute; left: 60px; right: 60px; top: 50px; height: 44px; margin: 0; z-index: 6; display: flex; align-items: center; justify-content: center; font-size: 17px; line-height: 22px; font-weight: 500; color: #2E1712; white-space: nowrap">Unser Zoobesuch</h1>
-<div class="scroll" style="position: absolute; left: 0; right: 0; top: 100px; bottom: 0; overflow-y: auto">
-<img src="img/1e0c53175055327593230e0f7824130d.jpg" alt="" style="display: block; width: 390px; height: 430px; object-fit: cover; object-position: 42% 36%">
-<div style="display: flex; align-items: center; padding: 4px 8px 2px">
-<a href="#" onClick="{{tapHeart}}" aria-label="Herz" aria-pressed="{{hOn}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: {{hCol}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; fill: {{hFill}}"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></a>
-<span style="margin-left: -6px; display: flex"><sc-if value="{{rosiH}}" hint-placeholder-val="{{ true }}"><span style="width: 22px; height: 22px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6"><img src="img/98fccb1d8e37b56ffd1e5d0234735f67.jpg" alt="" style="position: absolute; left: -40.1px; top: -6.8px; width: 77.0px; height: auto; max-width: none; display: block"></span></sc-if><span style="width: 22px; height: 22px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6; margin-left: {{f2ml}}; box-shadow: {{f2sh}}"><img src="img/e221fbd52df325fab75237a15dcebc51.jpg" alt="" style="position: absolute; left: -58.5px; top: -17.8px; width: 118.6px; height: auto; max-width: none; display: block"></span><span style="width: 22px; height: 22px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6; margin-left: -6px; box-shadow: 0 0 0 2px #FFFFFF"><img style="object-position: 51% 42%" src="img/03d7c0bfa1844716e6aa6b7f0b91ae88.jpg" alt="" class="ph"></span><sc-if value="{{heart}}" hint-placeholder-val="{{ false }}"><span style="width: 22px; height: 22px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6; margin-left: -6px; box-shadow: 0 0 0 2px #FFFFFF"><img style="object-position: 51% 40%" src="img/8cf0d595ab1f6813c6f743c8fe2df920.jpg" alt="" class="ph"></span></sc-if></span>
-<a href="#" onClick="{{tapCom}}" aria-label="Kommentieren" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712; margin-left: 4px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M4 5h16v11H9.5L4 20z"></path></svg></a>
+<a href="{{back}}" aria-label="Zurück" class="ib" style="position: absolute; left: 12px; top: 50px; z-index: 6"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<div class="up"><span class="face" style="width: 28px; height: 28px"><img src="{{up.src}}" alt="" class="fc" style="width: {{up.w}}; left: {{up.l}}; top: {{up.t}}"></span><span style="display: block; min-width: 0"><span class="upn">{{up.name}}</span><span class="upd">{{date}}</span></span></div>
+<sc-if value="{{dl}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{tapDl}}" aria-label="{{dlLabel}}" class="ib" style="position: absolute; right: 56px; top: 50px; z-index: 6"><sc-if value="{{saved}}" hint-placeholder-val="{{ false }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></sc-if><sc-if value="{{notSaved}}" hint-placeholder-val="{{ true }}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M12 4v11"></path><path d="M7 10.5l5 5 5-5"></path><path d="M5 20h14"></path></svg></sc-if></a></sc-if>
+<a href="#" onClick="{{askDel}}" aria-label="Löschen" class="ib" style="position: absolute; right: 12px; top: 50px; z-index: 6"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M4 7h16"></path><path d="M9.5 7V4.5h5V7"></path><path d="M6.5 7l1 13h9l1-13"></path><path d="M10 11v5.5"></path><path d="M14 11v5.5"></path></svg></a>
+
+<div class="scroll" style="position: absolute; left: 0; right: 0; top: 100px; bottom: 84px; overflow-y: auto">
+<img src="{{photo}}" alt="" style="display: block; width: 390px; height: 430px; object-fit: cover; object-position: {{pos}}">
+<div class="acts">
+<a href="#" onClick="{{tapHeart}}" aria-label="Herz" aria-pressed="{{hOn}}" class="ib" style="color: {{hCol}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; fill: {{hFill}}"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></a>
+<sc-if value="{{hasCount}}" hint-placeholder-val="{{ true }}"><a href="#" onClick="{{openHearts}}" aria-label="Wer ein Herz gegeben hat" class="cnt">{{count}}</a></sc-if>
 <span style="flex: 1"></span>
-<a href="P5F-SO11.dc.html" aria-label="{{bkLabel}}" style="width: 44px; height: 44px; margin-right: 2px; display: flex; align-items: center; justify-content: center; color: {{bkCol}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"></path><path d="M12 6.5V19.5"></path></svg></a>
-<a href="P5F-SO10.dc.html" aria-label="In Sammlungen" style="width: 44px; height: 44px; margin-right: 8px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><rect x="3" y="8" width="18" height="12.5" rx="3"></rect><path d="M6 5.2h12"></path><path d="M8.5 2.6h7"></path></svg></a>
+<sc-if value="{{seed}}" hint-placeholder-val="{{ true }}"><a href="P5F-SO11.dc.html" aria-label="{{bkLabel}}" class="ib" style="margin-right: 2px; color: {{bkCol}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"></path><path d="M12 6.5V19.5"></path></svg></a></sc-if><sc-if value="{{other}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{openBooks}}" aria-label="{{bkLabel}}" aria-haspopup="dialog" class="ib" style="margin-right: 2px; color: {{bkCol}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"></path><path d="M12 6.5V19.5"></path></svg></a></sc-if>
+<sc-if value="{{seed}}" hint-placeholder-val="{{ true }}"><a href="P5F-SO10.dc.html" aria-label="In Sammlungen" class="ib" style="margin-right: 8px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><rect x="3" y="8" width="18" height="12.5" rx="3"></rect><path d="M6 5.2h12"></path><path d="M8.5 2.6h7"></path></svg></a></sc-if><sc-if value="{{other}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{openCols}}" aria-label="{{colLabel}}" aria-haspopup="dialog" class="ib" style="margin-right: 8px; color: {{colCol}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><rect x="3" y="8" width="18" height="12.5" rx="3"></rect><path d="M6 5.2h12"></path><path d="M8.5 2.6h7"></path></svg></a></sc-if>
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 0 20px 12px">
-<div style="display: flex; align-items: flex-start; gap: 10px"><span style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6"><img src="img/98fccb1d8e37b56ffd1e5d0234735f67.jpg" alt="" style="position: absolute; left: -51.0px; top: -8.6px; width: 98.0px; height: auto; max-width: none; display: block"></span><span style="padding-top: 4px; font-size: 15px; line-height: 20px; color: #2E1712">Wie groß sie geworden ist!</span></div>
-<div style="display: flex; align-items: flex-start; gap: 10px"><span style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6"><img src="img/e221fbd52df325fab75237a15dcebc51.jpg" alt="" style="position: absolute; left: -74.5px; top: -22.7px; width: 151.0px; height: auto; max-width: none; display: block"></span><span style="padding-top: 4px; font-size: 15px; line-height: 20px; color: #2E1712">So ein schöner Tag</span></div>
-<sc-for list="{{coms}}" as="c" hint-placeholder-count="0"><div style="display: flex; align-items: flex-start; gap: 10px"><span style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; display: block; flex-shrink: 0; position: relative; background: #E2D9D6"><sc-if value="{{c.ich}}" hint-placeholder-val="{{ false }}"><img style="object-position: 51% 40%" src="img/8cf0d595ab1f6813c6f743c8fe2df920.jpg" alt="" class="ph"></sc-if><sc-if value="{{c.rosi}}" hint-placeholder-val="{{ false }}"><img src="img/98fccb1d8e37b56ffd1e5d0234735f67.jpg" alt="" style="position: absolute; left: -51.0px; top: -8.6px; width: 98.0px; height: auto; max-width: none; display: block"></sc-if></span><span style="padding-top: 4px; font-size: 15px; line-height: 20px; color: #2E1712">{{c.text}}</span></div></sc-for>
-<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><input id="p5fcomfield" class="field" type="text" aria-label="Kommentieren" enterkeyhint="send" autocomplete="off" onKeyDown="{{keyCom}}"></sc-if>
+<div class="cms">
+<sc-if value="{{seed}}" hint-placeholder-val="{{ true }}"><div><div class="cmh"><span class="cmn">Rosi</span><span class="cmt">gestern</span></div><p class="cmx">Wie groß sie geworden ist!</p></div>
+<div><div class="cmh"><span class="cmn">Karl</span><span class="cmt">vor 2 Std.</span></div><p class="cmx">So ein schöner Tag</p></div></sc-if>
+<sc-for list="{{coms}}" as="c" hint-placeholder-count="0"><div><div class="cmh"><span class="cmn">{{c.name}}</span><span class="cmt">{{c.time}}</span></div><p class="cmx">{{c.text}}</p></div></sc-for>
 </div>
-<div style="display: flex; flex-direction: column; gap: 5px; padding: 6px 16px 40px"><span style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px"><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8E5E3"><img src="img/98fccb1d8e37b56ffd1e5d0234735f67.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8E5E3"><img src="img/6b2140ddddd76bc9781ad8cc613f578d.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></span><span style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px"><span style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/02b9920f3dd7286c0fd992980b55502f.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/417fecf471f141550813f39c83c3b812.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></span></div>
+<div id="p5fcomend"></div>
+<div style="display: flex; flex-direction: column; gap: 5px; padding: 28px 16px 24px"><span class="gr" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px"><sc-if value="{{on.x98fccb1d}}" hint-placeholder-val="{{ true }}"><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8E5E3"><img src="img/98fccb1d8e37b56ffd1e5d0234735f67.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></sc-if><sc-if value="{{on.x6b2140dd}}" hint-placeholder-val="{{ true }}"><span style="display: block; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: #E8E5E3"><img src="img/6b2140ddddd76bc9781ad8cc613f578d.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></sc-if></span><span class="gr" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px"><sc-if value="{{on.x02b9920f}}" hint-placeholder-val="{{ true }}"><span style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/02b9920f3dd7286c0fd992980b55502f.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></sc-if><sc-if value="{{on.x62c95a78}}" hint-placeholder-val="{{ true }}"><span style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></sc-if><sc-if value="{{on.x417fecf4}}" hint-placeholder-val="{{ true }}"><span style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/417fecf471f141550813f39c83c3b812.jpg" alt="" class="ph" style="object-position: 50% 35%"></span></sc-if></span></div>
 </div>
+
+<div class="cbar"><div class="cin"><input id="p5fcomfield" type="text" placeholder="Kommentieren …" aria-label="Kommentieren" enterkeyhint="send" autocomplete="off" onKeyDown="{{keyCom}}" onInput="{{typing}}"><sc-if value="{{typed}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{sendCom}}" aria-label="Senden" class="send"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; stroke-width: 2.2"><path d="M12 19V6"></path><path d="M6.5 11.5L12 6l5.5 5.5"></path></svg></a></sc-if></div></div>
+
+<sc-if value="{{sheetH}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{closeSheet}}" aria-label="Schließen" class="scrim"></a><div role="dialog" aria-label="Wer ein Herz gegeben hat" class="bs"><span class="grab"></span><div class="bsh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; color: #4E2018; fill: #4E2018"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg><h2 class="bst"><br></h2></div>
+<sc-if value="{{g.rosi}}" hint-placeholder-val="{{ true }}"><div class="who"><span class="face" style="width: 40px; height: 40px"><img src="img/98fccb1d8e37b56ffd1e5d0234735f67.jpg" alt="" class="fc" style="width: 350%; left: -182.2%; top: -30.8%"></span><span>Rosi</span></div></sc-if>
+<sc-if value="{{g.karl}}" hint-placeholder-val="{{ true }}"><div class="who"><span class="face" style="width: 40px; height: 40px"><img src="img/e221fbd52df325fab75237a15dcebc51.jpg" alt="" class="fc" style="width: 539.4%; left: -266.1%; top: -81.1%"></span><span>Karl</span></div></sc-if>
+<sc-if value="{{g.lukas}}" hint-placeholder-val="{{ true }}"><div class="who"><span class="face" style="width: 40px; height: 40px"><img src="img/03d7c0bfa1844716e6aa6b7f0b91ae88.jpg" alt="" class="fc" style="width: 160%; left: -23.2%; top: -42%"></span><span>Lukas</span></div></sc-if>
+<sc-if value="{{g.me}}" hint-placeholder-val="{{ false }}"><div class="who"><span class="face" style="width: 40px; height: 40px"><img src="img/8cf0d595ab1f6813c6f743c8fe2df920.jpg" alt="" class="fc" style="width: 172.3%; left: -27.9%; top: -40.4%"></span><span>Johanna</span></div></sc-if>
+</div></sc-if>
+
+<sc-if value="{{sheetD}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{closeSheet}}" aria-label="Schließen" class="scrim"></a><div role="dialog" aria-label="Foto löschen" class="bs"><span class="grab"></span><h2 class="bst" style="margin-top: 8px">Foto löschen?</h2><p class="bsl">{{delLine}}</p><div class="bsb"><a href="{{back}}" onClick="{{doDel}}" class="btn">Löschen</a><a href="#" onClick="{{closeSheet}}" class="btn soft">Abbrechen</a></div></div></sc-if>
+
+<sc-if value="{{sheetB}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{closeSheet}}" aria-label="Schließen" class="scrim"></a><div role="dialog" aria-label="Bücher" class="bs"><span class="grab"></span><div class="bsh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"></path><path d="M12 6.5V19.5"></path></svg><h2 class="bst">Bücher</h2></div>
+<div class="row"><a href="P5-B2c.dc.html" class="ro"><span class="th"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span class="rn">Hannes erstes Jahr</span><svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a><a href="#" role="checkbox" aria-checked="{{arH}}" aria-label="Foto in Hannes erstes Jahr" onClick="{{tapH}}" class="tg"><span class="ck" style="background: {{bgH}}; box-shadow: inset 0 0 0 1.5px {{rgH}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke-width: 2.4; display: {{ckH}}"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></a></div>
+<div class="row"><a href="P5-BK-B4.dc.html" class="ro"><span class="th"><img src="img/02b9920f3dd7286c0fd992980b55502f.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span class="rn">Unsere Familie 2026</span><svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a><a href="#" role="checkbox" aria-checked="{{arF}}" aria-label="Foto in Unsere Familie 2026" onClick="{{tapF}}" class="tg"><span class="ck" style="background: {{bgF}}; box-shadow: inset 0 0 0 1.5px {{rgF}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke-width: 2.4; display: {{ckF}}"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></a></div></div></sc-if>
+
+<sc-if value="{{sheetC}}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{closeSheet}}" aria-label="Schließen" class="scrim"></a><div role="dialog" aria-label="Sammlungen" class="bs"><span class="grab"></span><div class="bsh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><rect x="3" y="8" width="18" height="12.5" rx="3"></rect><path d="M6 5.2h12"></path><path d="M8.5 2.6h7"></path></svg><h2 class="bst">Sammlungen</h2></div>
+<div class="row"><a href="P5F-SH1.dc.html" class="ro"><span class="th"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span class="rn">Hanne</span><svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a><a href="#" role="checkbox" aria-checked="{{arHanne}}" aria-label="Foto in der Sammlung Hanne" onClick="{{tapHanne}}" class="tg"><span class="ck" style="background: {{bgHanne}}; box-shadow: inset 0 0 0 1.5px {{rgHanne}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke-width: 2.4; display: {{ckHanne}}"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></a></div>
+<div class="row"><a href="P5-sammlungen.dc.html" class="ro"><span class="th"><img src="img/21667a67aaaf063cbed76be758bf836a.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span class="rn">Unsere Familie</span><svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a><a href="#" role="checkbox" aria-checked="{{arFamilie}}" aria-label="Foto in der Sammlung Unsere Familie" onClick="{{tapFamilie}}" class="tg"><span class="ck" style="background: {{bgFamilie}}; box-shadow: inset 0 0 0 1.5px {{rgFamilie}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke-width: 2.4; display: {{ckFamilie}}"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></a></div>
+<div class="row"><a href="P5-sammlungen.dc.html" class="ro"><span class="th"><img src="img/0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span class="rn">Dänemark 2026</span><svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a><a href="#" role="checkbox" aria-checked="{{arDaenemark}}" aria-label="Foto in der Sammlung Dänemark 2026" onClick="{{tapDaenemark}}" class="tg"><span class="ck" style="background: {{bgDaenemark}}; box-shadow: inset 0 0 0 1.5px {{rgDaenemark}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke-width: 2.4; display: {{ckDaenemark}}"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></a></div>
+<div class="row"><a href="P5-sammlungen.dc.html" class="ro"><span class="th"><img src="img/9f8ac47fc93a6aaa1c39f72464370b8c.jpg" alt="" class="ph" style="object-position: 50% 35%"></span><span class="rn">Theo</span><svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"></path></svg></a><a href="#" role="checkbox" aria-checked="{{arTheo}}" aria-label="Foto in der Sammlung Theo" onClick="{{tapTheo}}" class="tg"><span class="ck" style="background: {{bgTheo}}; box-shadow: inset 0 0 0 1.5px {{rgTheo}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px; stroke-width: 2.4; display: {{ckTheo}}"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></a></div></div></sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>class Component extends DCLogic {
-  __back() { try { const r = String(document.referrer || '').split('#')[0].split('?')[0].split('/').pop() || ''; if (/\.dc\.html$/.test(r) && !/^P5F-SO(1|2|3|9|10|11)\.dc\.html$/.test(r)) { window.sessionStorage.setItem('p5fback', r); } const s = window.sessionStorage.getItem('p5fback'); if (s) return s; } catch (e) {} return 'P5F-SH4.dc.html'; }
+  // WHICH PHOTO. Grids open this board as P5F-SO1.dc.html#ph=<blob id>&by=<johanna|lukas|rosi|karl> (by = who uploaded it).
+  // No hash, or ph = the master photo below: Johanna's zoo photo exactly as before (seed comments, hearts from the family, P5F-SO10/SO11 sheets, P5F-SO2 redirect).
+  // Any other ph: that photo, uploaded by `by`. Hearts and comments are kept under the photo id and start empty; book and Sammlungen open in-page sheets (v3bk[id], p5fcolsP[id]).
+  // Ids are always read with a 32-hex match, so they also work after the click-through build renames /_blob/<id> to img/<id>.jpg.
+  __master() { return 'img/1e0c53175055327593230e0f7824130d.jpg'; }
+  __id(s) { const m = /[a-f0-9]{32}/.exec(String(s || '')); return m ? m[0] : ''; }
+  __hash() {
+    let h = ''; try { h = String(window.location.hash || ''); } catch (e) {}
+    const ph = /ph=([a-f0-9]{32})/.exec(h); const by = /by=(johanna|lukas|rosi|karl)/.exec(h);
+    const id = ph ? ph[1] : ''; const master = !id || id === this.__id(this.__master());
+    return { master: master, id: master ? this.__id(this.__master()) : id, by: master ? 'johanna' : (by ? by[1] : 'johanna') };
+  }
+  // Uploader in the top bar (the only face on the view) and whose phone a deleted photo stays on.
+  __people() { return {
+    johanna: { name: 'Johanna', src: 'img/8cf0d595ab1f6813c6f743c8fe2df920.jpg', w: '172.3%', l: '-27.9%', t: '-40.4%', phone: 'deinem' },
+    lukas: { name: 'Lukas', src: 'img/03d7c0bfa1844716e6aa6b7f0b91ae88.jpg', w: '160%', l: '-23.2%', t: '-42%', phone: 'Lukas’' },
+    rosi: { name: 'Rosi', src: 'img/98fccb1d8e37b56ffd1e5d0234735f67.jpg', w: '350%', l: '-182.2%', t: '-30.8%', phone: 'Rosis' },
+    karl: { name: 'Karl', src: 'img/e221fbd52df325fab75237a15dcebc51.jpg', w: '539.4%', l: '-266.1%', t: '-81.1%', phone: 'Karls' }
+  }; }
+  // Every photo a grid can open here: crop, date, h = in the Sammlung Hanne (P5F-SH1). Photos from Rosi or Lukas always start in Hanne (they shared them there).
+  __photos() { return [
+    { src: 'img/1e0c53175055327593230e0f7824130d.jpg', pos: '42% 36%', date: '15. November', h: true },
+    { src: 'img/1ea585f1d21895a82535fcb168fc4865.jpg', pos: '50% 50%', date: '15. November', h: true },
+    { src: 'img/21667a67aaaf063cbed76be758bf836a.jpg', pos: '50% 50%', date: '15. November', h: true },
+    { src: 'img/25e1363891f310898b63c4aa634283cf.jpg', pos: '50% 50%', date: '15. November', h: true },
+    { src: 'img/e03b67894975be13f1772284f97ce0bc.jpg', pos: '50% 5%', date: '15. November', h: true },
+    { src: 'img/7c35610e627ae69f8306df6df3c13068.jpg', pos: '50% 5%', date: '15. November', h: false },
+    { src: 'img/7d3a724d514cbce289825c4830aeb100.jpg', pos: '40% 30%', date: '15. November', h: false },
+    { src: 'img/469cf00c4ef38a38f51f18526f03bfb2.jpg', pos: '46% 42%', date: '15. November', h: true },
+    { src: 'img/03d7c0bfa1844716e6aa6b7f0b91ae88.jpg', pos: '51% 42%', date: '16. November', h: false },
+    { src: 'img/a81f932c4ea08ed8e2caa47595436a7c.jpg', pos: '45% 35%', date: '17. November', h: true },
+    { src: 'img/4ca52b1792f5a9ca998eb279a729da04.jpg', pos: '52% 50%', date: '18. November', h: true },
+    { src: 'img/62c95a789594ee7ca512fe8877eed8e0.jpg', pos: '47% 42%', date: '18. November', h: true },
+    { src: 'img/2814e746cdfd2675d2433d1d21793142.jpg', pos: '50% 50%', date: '18. November', h: true },
+    { src: 'img/47d2c818065b47cc3accc1351f4b3b9d.jpg', pos: '50% 50%', date: '18. November', h: true },
+    { src: 'img/f644eaf9563383dce442a25b6fea2d78.jpg', pos: '50% 45%', date: '18. November', h: true },
+    { src: 'img/210d489e1180fd7ef533c8619ace8f67.jpg', pos: '50% 35%', date: '14. November', h: true },
+    { src: 'img/6e5678ac7a1dcd87114525bf72848dd5.jpg', pos: '50% 45%', date: '14. November', h: true },
+    { src: 'img/cc648fd311d75c953d000bc6b9554c85.jpg', pos: '56% 35%', date: '13. November', h: false },
+    { src: 'img/087137a6ae65685393b1a313680bfc46.jpg', pos: '53% 46%', date: '13. November', h: false },
+    { src: 'img/bf54839138157ac13314876dccff0df4.jpg', pos: '32% 45%', date: '13. November', h: false },
+    { src: 'img/619a65fded7f4fb26e11e276c50b9b36.jpg', pos: '56% 43%', date: '12. November', h: true },
+    { src: 'img/c416fc18921824977951ebb05b894278.jpg', pos: '55% 35%', date: '12. November', h: true },
+    { src: 'img/98fccb1d8e37b56ffd1e5d0234735f67.jpg', pos: '56% 42%', date: '11. November', h: false },
+    { src: 'img/b132d2bcf24d52224f224c5d23a42915.jpg', pos: '50% 33%', date: '10. November', h: true },
+    { src: 'img/417fecf471f141550813f39c83c3b812.jpg', pos: '36% 48%', date: '10. November', h: true },
+    { src: 'img/02b9920f3dd7286c0fd992980b55502f.jpg', pos: '53% 40%', date: '10. November', h: true },
+    { src: 'img/0198420cf724a83777188ea30db88c18.jpg', pos: '50% 35%', date: '7. November', h: true },
+    { src: 'img/c6339f713bbb622dc0897e4601f6e67b.jpg', pos: '50% 35%', date: '7. November', h: true },
+    { src: 'img/36ae6b410ba2c900c129785a2c3a1ee4.jpg', pos: '50% 40%', date: '5. November', h: false },
+    { src: 'img/501ac46f8866bccff28d1ec8b87ea6bc.jpg', pos: '50% 35%', date: '3. November', h: true },
+    { src: 'img/e221fbd52df325fab75237a15dcebc51.jpg', pos: '30% 40%', date: '1. November', h: true },
+    { src: 'img/a1a21bc808bfb5d9034f3fc9c43f90de.jpg', pos: '50% 30%', date: '26. Oktober', h: true },
+    { src: 'img/1626a03281a37f42864447591e36fe4c.jpg', pos: '50% 40%', date: '26. Oktober', h: false },
+    { src: 'img/6b59577f644a855e466f4318c596cb2a.jpg', pos: '40% 40%', date: '26. Oktober', h: false },
+    { src: 'img/8d767c5fe7327022ef91e4bdfc5f6293.jpg', pos: '50% 45%', date: '26. Oktober', h: false },
+    { src: 'img/dbc2ec4df22b2ac206b1a7536e1073fc.jpg', pos: '50% 40%', date: '19. Oktober', h: true },
+    { src: 'img/2ff90518f825a8801dd79c5e168a18a5.jpg', pos: '50% 40%', date: '19. Oktober', h: true },
+    { src: 'img/823e5facdd3de1dd5c2d1f16f2be6cef.jpg', pos: '50% 40%', date: '19. Oktober', h: true },
+    { src: 'img/59b28f62cf337f5a499c77ffe55695f9.jpg', pos: '50% 40%', date: '19. Oktober', h: true },
+    { src: 'img/dcd1d3cda28160728720444f3b855a17.jpg', pos: '50% 40%', date: '19. Oktober', h: true },
+    { src: 'img/ea909026b962e05c014114d1403503b9.jpg', pos: '50% 40%', date: '19. Oktober', h: true },
+    { src: 'img/6b2140ddddd76bc9781ad8cc613f578d.jpg', pos: '51% 42%', date: '12. Oktober', h: true },
+    { src: 'img/0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg', pos: '50% 40%', date: '9. August', h: false }
+  ]; }
+  // The shown photo. An id that is not in the list (for example one added in the picker) still shows, with a neutral crop.
+  __photo() {
+    const self = this; const id = this.__hash().id;
+    const hit = this.__photos().filter(function (p) { return self.__id(p.src) === id; })[0];
+    if (hit) return hit;
+    const ref = this.__master(); const at = ref.indexOf(this.__id(ref));
+    return { src: ref.slice(0, at) + id + ref.slice(at + 32), pos: '50% 40%', date: '19. November', h: false };
+  }
+  // CONTENT OF THIS PHOTO. Copies of this master (P5F-SO2, SO3, SO9, ...) set these values by hand; here they follow the hash.
+  __cfg() { const P = this.__hash(); return {
+    master: P.master,           // true: Johanna's zoo photo as before
+    id: P.id,                   // blob id of the shown photo (goes into p5fdel on Löschen)
+    by: P.by,                   // uploader: top bar face and name, delete line, download icon
+    key: P.master ? 'zoo' : P.id, // this photo's key inside p5fheart / p5fheartR / p5fcom
+    myHeart: 'p5fheart',        // where this phone saves its own heart (Johanna: p5fheart, Rosi's phone: p5fheartR)
+    myHeartOn: false,           // own heart is on when nothing is saved yet
+    me: 'ich',                  // who-value saved with comments typed on this phone (ich = Johanna, rosi = Rosi)
+    names: { ich: 'Johanna', rosi: 'Rosi' }, // who-value to the bold name in the comment list
+    bookKey: P.master ? '0' : P.id, bookOn: P.master, // v3bk entry that colors the book sign, and its value when nothing is saved
+    dl: !P.master && P.by !== 'johanna', // download icon: false on your own photo, true on someone else's
+    sheet: null                 // sheet open on load: null, 'h' = hearts (P5F-SO12), 'd' = delete
+  }; }
+  // Everyone else who gave a heart (this phone's own heart is added as g.me). Keys must match the sc-if rows in the heart sheet. Other photos start with none.
+  __givers() { if (!this.__hash().master) return {}; const hr = this.__get('p5fheartR') || {}; return { rosi: hr.zoo !== false, karl: true, lukas: true }; }
+
+  __back() { try { const r = String(document.referrer || '').split('#')[0].split('?')[0].split('/').pop() || ''; if (/\.dc\.html$/.test(r) && !/^P5F-SO(1|2|3|9|10|11|12)\.dc\.html$/.test(r)) { window.sessionStorage.setItem('p5fback', r); } const s = window.sessionStorage.getItem('p5fback'); if (s) return s; } catch (e) {} return 'P5F-SH4.dc.html'; }
   __get(k) { try { const v = JSON.parse(window.sessionStorage.getItem(k) || 'null'); return v && typeof v === 'object' ? v : null; } catch (e) { return null; } }
   __set(k, v) { try { window.sessionStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-  __coms() { const c = (this.__get('p5fcom') || {}).zoo; return Array.isArray(c) ? c.filter(function (x) { return x && typeof x.text === 'string' && x.text; }) : []; }
-  __read() { const h = this.__get('p5fheart') || {}; const b = (this.__get('v3bk') || {})['0']; const hr = this.__get('p5fheartR') || {}; return { rosiH: hr.zoo !== false, heart: h.zoo === true, coms: this.__coms(), book: b && typeof b === 'object' ? !!(b.h || b.f) : true }; }
+  __coms() { const c = (this.__get('p5fcom') || {})[this.__cfg().key]; return Array.isArray(c) ? c.filter(function (x) { return x && typeof x.text === 'string' && x.text; }) : []; }
+  // Books (v3bk[id]: h = Hannes erstes Jahr, f = Unsere Familie 2026) and Sammlungen (p5fcolsP[id]) of a photo that is not the master.
+  __bk(id) { const d = { h: false, f: false }; const b = (this.__get('v3bk') || {})[id]; if (b && typeof b === 'object') { d.h = !!b.h; d.f = !!b.f; } return d; }
+  __cols(id, by) { const d = { hanne: by !== 'johanna' || !!this.__photo().h, familie: false, daenemark: false, theo: false }; const o = (this.__get('p5fcolsP') || {})[id]; if (o && typeof o === 'object') { ['hanne', 'familie', 'daenemark', 'theo'].forEach(function (k) { if (typeof o[k] === 'boolean') d[k] = o[k]; }); } return d; }
+  __read() {
+    const C = this.__cfg(); const h = this.__get(C.myHeart) || {}; const b = (this.__get('v3bk') || {})[C.bookKey];
+    const r = { heart: C.myHeartOn ? h[C.key] !== false : h[C.key] === true, givers: this.__givers(), coms: this.__coms(), book: b && typeof b === 'object' ? !!(b.h || b.f) : C.bookOn };
+    r.bk = C.master ? { h: false, f: false } : this.__bk(C.id); r.cols = C.master ? {} : this.__cols(C.id, C.by);
+    try { const d = JSON.parse(window.sessionStorage.getItem('p5fdel') || '[]'); r.del = Array.isArray(d) ? d.map(String) : []; } catch (e) { r.del = []; }
+    return r;
+  }
+  __redirect() { const cols = this.__get('p5fcols'); if (this.__cfg().master && cols && cols.hanne === false) { try { window.location.replace('P5F-SO2.dc.html'); } catch (e) {} } }
   constructor(props) {
     super(props);
     const back = this.__back();
-    const cols = this.__get('p5fcols');
-    if (cols && cols.hanne === false) { try { window.location.replace('P5F-SO2.dc.html'); } catch (e) {} }
-    this.state = Object.assign({ back: back, open: false }, this.__read());
+    this.__redirect();
+    this.state = Object.assign({ back: back, sheet: this.__cfg().sheet, typed: false, saved: false }, this.__read());
   }
-  componentDidMount() { const self = this; try { window.addEventListener('pageshow', function (e) { if (e && e.persisted) self.setState(self.__read()); }); } catch (e) {} }
-  __heart(e) { if (e && e.preventDefault) e.preventDefault(); const h = Object.assign({}, this.__get('p5fheart') || {}); h.zoo = !this.state.heart; this.__set('p5fheart', h); this.setState({ heart: h.zoo }); }
-  __com(e) { if (e && e.preventDefault) e.preventDefault(); const open = !this.state.open; this.setState({ open: open }); if (open) setTimeout(function () { try { const f = document.getElementById('p5fcomfield'); if (f) { f.focus(); f.scrollIntoView({ block: 'nearest' }); } } catch (x) {} }, 60); }
-  __key(e) { if (!e || e.key !== 'Enter') return; if (e.preventDefault) e.preventDefault(); const t = String((e.target && e.target.value) || '').trim(); if (!t) return; const all = Object.assign({}, this.__get('p5fcom') || {}); const list = Array.isArray(all.zoo) ? all.zoo.slice() : []; list.push({ who: 'ich', text: t }); all.zoo = list; this.__set('p5fcom', all); const f = e.target; f.value = ''; this.setState({ coms: this.__coms() }); setTimeout(function () { try { f.scrollIntoView({ block: 'nearest' }); } catch (x) {} }, 60); }
+  componentDidMount() {
+    const self = this;
+    try {
+      window.addEventListener('pageshow', function (e) { if (e && e.persisted) self.setState(self.__read()); });
+      // Another photo opened on this same board: show it from the top, with a fresh comment field.
+      window.addEventListener('hashchange', function () { self.__redirect(); const f = document.getElementById('p5fcomfield'); if (f) f.value = ''; const sc = document.querySelector('.scroll'); if (sc) sc.scrollTop = 0; self.setState(Object.assign({ sheet: null, typed: false, saved: false }, self.__read())); });
+    } catch (e) {}
+  }
+  __heart(e) { if (e && e.preventDefault) e.preventDefault(); const C = this.__cfg(); const h = Object.assign({}, this.__get(C.myHeart) || {}); h[C.key] = !this.state.heart; this.__set(C.myHeart, h); this.setState({ heart: h[C.key] }); }
+  __sheet(e, s) { if (e && e.preventDefault) e.preventDefault(); this.setState({ sheet: s }); }
+  __typing(e) { const t = !!String((e && e.target && e.target.value) || '').trim(); if (t !== this.state.typed) this.setState({ typed: t }); }
+  __send(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const f = document.getElementById('p5fcomfield'); if (!f) return;
+    const t = String(f.value || '').trim(); if (!t) return;
+    const C = this.__cfg(); const all = Object.assign({}, this.__get('p5fcom') || {}); const list = Array.isArray(all[C.key]) ? all[C.key].slice() : [];
+    list.push({ who: C.me, text: t }); all[C.key] = list; this.__set('p5fcom', all);
+    f.value = ''; this.setState({ coms: this.__coms(), typed: false });
+    setTimeout(function () { try { const sc = document.querySelector('.scroll'); const end = document.getElementById('p5fcomend'); if (!sc || !end) return; const r = end.getBoundingClientRect(); const s = sc.getBoundingClientRect(); if (r.bottom > s.bottom - 16 || r.bottom < s.top + 120) sc.scrollTop += r.bottom - s.bottom + 16; } catch (x) {} }, 60);
+  }
+  __key(e) { if (!e || e.key !== 'Enter' || e.isComposing) return; this.__send(e); }
+  // Löschen: the photo leaves every grid (sessionStorage p5fdel, a list of blob ids), then the link goes back.
+  __delete() { try { const id = this.__cfg().id; const v = JSON.parse(window.sessionStorage.getItem('p5fdel') || '[]'); const a = Array.isArray(v) ? v : []; if (id && a.indexOf(id) < 0) a.push(id); window.sessionStorage.setItem('p5fdel', JSON.stringify(a)); } catch (e) {} }
+  __tapBook(k, e) { if (e && e.preventDefault) e.preventDefault(); const C = this.__cfg(); const cur = Object.assign({}, this.state.bk); cur[k] = !cur[k]; const all = Object.assign({}, this.__get('v3bk') || {}); all[C.id] = cur; this.__set('v3bk', all); this.setState({ bk: cur }); }
+  __tapCol(k, e) { if (e && e.preventDefault) e.preventDefault(); const C = this.__cfg(); const c = Object.assign({}, this.state.cols); c[k] = !c[k]; const all = Object.assign({}, this.__get('p5fcolsP') || {}); all[C.id] = c; this.__set('p5fcolsP', all); this.setState({ cols: c }); }
+  // The small grid under the comments (same photos on every photo): it leaves out the shown photo and deleted photos.
+  __bottom() { return ['img/98fccb1d8e37b56ffd1e5d0234735f67.jpg', 'img/6b2140ddddd76bc9781ad8cc613f578d.jpg', 'img/02b9920f3dd7286c0fd992980b55502f.jpg', 'img/62c95a789594ee7ca512fe8877eed8e0.jpg', 'img/417fecf471f141550813f39c83c3b812.jpg']; }
+  __tg(v, on, k, fn) { v['ar' + k] = on ? 'true' : 'false'; v['bg' + k] = on ? '#4E2018' : 'transparent'; v['rg' + k] = on ? '#4E2018' : '#C9BFBA'; v['ck' + k] = on ? 'block' : 'none'; v['tap' + k] = fn; }
   renderVals() {
-    const self = this; const on = this.state.heart;
-    return { back: this.state.back, rosiH: this.state.rosiH, f2ml: this.state.rosiH ? '-6px' : '0', f2sh: this.state.rosiH ? '0 0 0 2px #FFFFFF' : 'none', heart: on, hOn: on ? 'true' : 'false', hCol: on ? '#4E2018' : '#2E1712', hFill: on ? '#4E2018' : 'none',
-      bkLabel: this.state.book ? 'In einem Buch' : 'In keinem Buch', bkCol: this.state.book ? '#2E1712' : '#B3A49D',
-      open: this.state.open, coms: this.state.coms.map(function (c) { return { text: c.text, ich: c.who !== 'rosi', rosi: c.who === 'rosi' }; }),
-      tapHeart: function (e) { self.__heart(e); }, tapCom: function (e) { self.__com(e); }, keyCom: function (e) { self.__key(e); } };
+    const self = this; const C = this.__cfg(); const on = this.state.heart; const sh = this.state.sheet;
+    const g = Object.assign({}, this.state.givers, { me: on });
+    const count = Object.keys(g).filter(function (k) { return g[k]; }).length;
+    const P = this.__photo(); const up = this.__people()[C.by] || this.__people().johanna;
+    const bk = this.state.bk || {}; const cols = this.state.cols || {};
+    const inBook = C.master ? this.state.book : !!(bk.h || bk.f);
+    const inCol = C.master || !!(cols.hanne || cols.familie || cols.daenemark || cols.theo);
+    const del = this.state.del || []; const bot = {}; this.__bottom().forEach(function (s) { const id = self.__id(s); bot['x' + id.slice(0, 8)] = id !== C.id && del.indexOf(id) < 0; });
+    const v = { back: this.state.back, on: bot, photo: C.master ? this.__master() : P.src, pos: C.master ? '42% 36%' : P.pos, date: C.master ? '15. November' : P.date, up: up, seed: C.master,
+      delLine: 'Es bleibt auf ' + up.phone + ' Handy.',
+      hOn: on ? 'true' : 'false', hCol: on ? '#4E2018' : '#2E1712', hFill: on ? '#4E2018' : 'none',
+      g: g, count: String(count), hasCount: count > 0,
+      other: !C.master,
+      bkLabel: inBook ? 'In einem Buch' : 'In keinem Buch', bkCol: inBook ? '#2E1712' : '#B3A49D',
+      colLabel: inCol ? 'In Sammlungen' : 'In keiner Sammlung', colCol: inCol ? '#2E1712' : '#B3A49D',
+      coms: this.state.coms.map(function (c) { return { name: C.names[c.who] || C.names.ich, text: c.text, time: 'gerade eben' }; }),
+      typed: this.state.typed, dl: C.dl, saved: this.state.saved, notSaved: !this.state.saved, dlLabel: this.state.saved ? 'Gespeichert' : 'Herunterladen',
+      sheetH: sh === 'h', sheetD: sh === 'd', sheetB: sh === 'b', sheetC: sh === 'c',
+      tapHeart: function (e) { self.__heart(e); }, openHearts: function (e) { self.__sheet(e, 'h'); }, askDel: function (e) { self.__sheet(e, 'd'); }, closeSheet: function (e) { self.__sheet(e, null); },
+      // master: the signs are plain links to P5F-SO11 / P5F-SO10; any other photo: the same sheets open in place
+      openBooks: function (e) { self.__sheet(e, 'b'); }, openCols: function (e) { self.__sheet(e, 'c'); },
+      doDel: function () { self.__delete(); },
+      tapDl: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ saved: true }); },
+      typing: function (e) { self.__typing(e); }, keyCom: function (e) { self.__key(e); }, sendCom: function (e) { self.__send(e); } };
+    this.__tg(v, !!bk.h, 'H', function (e) { self.__tapBook('h', e); });
+    this.__tg(v, !!bk.f, 'F', function (e) { self.__tapBook('f', e); });
+    [['Hanne', 'hanne'], ['Familie', 'familie'], ['Daenemark', 'daenemark'], ['Theo', 'theo']].forEach(function (q) { self.__tg(v, !!cols[q[1]], q[0], function (e) { self.__tapCol(q[1], e); }); });
+    return v;
   }
 }</script>
 </body>

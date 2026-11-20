@@ -56,9 +56,10 @@ img.ph{display:block;width:100%;height:100%;object-fit:cover}
 class Component extends DCLogic {
   __get(k) { try { return window.sessionStorage.getItem(k); } catch (e) { return null; } }
   __json(k, d) { try { const o = JSON.parse(this.__get(k) || 'null'); if (o && typeof o === 'object' && !Array.isArray(o)) return Object.assign({}, d, o); } catch (e) {} return d; }
-  // true while the 12 new photos still wait for Johanna's yes (SH4 switch on, SO8 not finished)
+  // true while the 12 new photos still wait for Johanna's yes (SO8 not decided yet). Approval counts as on unless
+  // P5F-SH4's switch turned it off (p5fapprove '0'): the same default SH4 shows.
   __waiting() {
-    if (this.__get('p5fapprove') !== '1') return false;
+    if (this.__get('p5fapprove') === '0' || this.__get('p5fso8done') === '1') return false;
     const v = this.__get('p5fnew12');
     if (!v || v === '0') return true;
     try { const a = JSON.parse(v); if (Array.isArray(a)) return a.length < 12; } catch (e) {}

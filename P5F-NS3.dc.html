@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
+.btn:hover{color:#ffffff}
+.pf{display:flex;flex-direction:column;align-items:center;gap:8px;width:64px;flex-shrink:0;padding:0;margin:0;border:0;background:none;font-family:inherit;color:#2E1712;cursor:pointer}
+.face{display:block;flex-shrink:0;position:relative;overflow:hidden;border-radius:50%;background:#E2D9D6}
+.fc{position:absolute;height:auto;max-width:none;display:block}
+.chip{height:44px;padding:0 16px;border:0;border-radius:22px;font-family:inherit;font-size:16px;line-height:20px;font-weight:500;cursor:pointer;transition:background-color 0.14s ease, color 0.14s ease}
+@media (prefers-reduced-motion: reduce){.chip{transition:none}}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="position: absolute; left: 0; right: 0; top: 44px; height: 44px; padding: 0 14px; display: flex; align-items: center; z-index: 4"><a href="P5F-NS1.dc.html" aria-label="Zurück" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; stroke-width: 2.2"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+<div style="position: absolute; left: 20px; right: 20px; top: 104px; display: flex; flex-direction: column; gap: 36px">
+<h1 style="margin: 0; font-size: 26px; line-height: 32px; font-weight: 700; color: #2E1712; text-align: center">Welche Fotos?</h1>
+<div role="group" aria-label="Wer" style="display: flex; justify-content: center; gap: 22px">
+<sc-for list="{{people}}" as="p" hint-placeholder-count="4"><button type="button" class="pf" aria-pressed="{{p.pressed}}" aria-label="{{p.label}}" onClick="{{p.tap}}"><span style="position: relative; display: block; width: 64px; height: 64px; border-radius: 50%; box-shadow: {{p.ring}}"><span class="face" style="width: 64px; height: 64px"><img src="{{p.src}}" alt="" class="fc" style="width: {{p.w}}; left: {{p.l}}; top: {{p.t}}"></span><sc-if value="{{p.on}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; right: -4px; bottom: -2px; width: 24px; height: 24px; border-radius: 50%; background: #4E2018; color: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke-width: 2.8"><path d="M5 12l4 4L19 6"></path></svg></span></sc-if></span><span style="font-size: 15px; line-height: 19px; font-weight: 500; color: #2E1712; white-space: nowrap">{{p.label}}</span></button></sc-for>
+</div>
+<div role="group" aria-label="Wo" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px">
+<sc-for list="{{places}}" as="c" hint-placeholder-count="4"><button type="button" class="chip" aria-pressed="{{c.pressed}}" onClick="{{c.tap}}" style="background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button></sc-for>
+</div>
+<div role="group" aria-label="Was" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px">
+<sc-for list="{{themes}}" as="c" hint-placeholder-count="3"><button type="button" class="chip" aria-pressed="{{c.pressed}}" onClick="{{c.tap}}" style="background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button></sc-for>
+</div>
+</div>
+<a href="P5F-NS4.dc.html" onClick="{{done}}" aria-disabled="{{doneDis}}" class="btn" style="position: absolute; left: 20px; right: 20px; bottom: 34px; opacity: {{doneOp}}">Fertig</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  // "Automatisch befüllen" (Hendrik, 19 Nov): who (faces), where (places the photos really show), what (themes).
+  // Every pick is optional, nothing starts picked; Fertig works with no pick too: then the Sammlung takes all photos.
+  // Fertig stores the picks in sessionStorage p5fnsauto = { people: [], places: [], themes: [] } and opens the
+  // filled Sammlung P5F-NS4, which picks the matching photos (people: any of them; place and theme narrow the
+  // result only while photos are left). Places and themes are only the ones the photos really show (tags in P5F-NS4).
+  __people() { return [
+      { id: 'hanne', label: 'Hanne', src: 'img/62c95a789594ee7ca512fe8877eed8e0.jpg', w: '150%', l: '-21%', t: '-18%' },
+      { id: 'theo', label: 'Theo', src: 'img/9f8ac47fc93a6aaa1c39f72464370b8c.jpg', w: '190%', l: '-48%', t: '-50%' },
+      { id: 'lukas', label: 'Lukas', src: 'img/03d7c0bfa1844716e6aa6b7f0b91ae88.jpg', w: '160%', l: '-23.2%', t: '-42%' },
+      { id: 'ich', label: 'Ich', src: 'img/8cf0d595ab1f6813c6f743c8fe2df920.jpg', w: '172.3%', l: '-27.9%', t: '-40.4%' }
+  ]; }
+  __places() { return [{ id: 'zuhause', label: 'Zuhause' }, { id: 'zoo', label: 'Zoo' }, { id: 'park', label: 'Park' }, { id: 'strand', label: 'Strand' }]; }
+  __themes() { return [{ id: 'ausfluege', label: 'Ausflüge' }, { id: 'spielen', label: 'Spielen' }, { id: 'essen', label: 'Essen' }]; }
+  __from() { try { return String(document.referrer || '').split('#')[0].split('?')[0].split('/').pop() || ''; } catch (e) { return ''; } }
+  constructor(props) {
+    super(props);
+    // back from the filled Sammlung: keep the picks; any other way in starts empty
+    let a = null; try { if (this.__from() === 'P5F-NS4.dc.html') a = JSON.parse(window.sessionStorage.getItem('p5fnsauto') || 'null'); } catch (e) {}
+    const arr = function (x) { return Array.isArray(x) ? x.slice() : []; };
+    this.state = a && typeof a === 'object' ? { people: arr(a.people), places: arr(a.places), themes: arr(a.themes) } : { people: [], places: [], themes: [] };
+  }
+  __flip(group, id) { const x = this.state[group].slice(); const i = x.indexOf(id); if (i >= 0) x.splice(i, 1); else x.push(id); const o = {}; o[group] = x; this.setState(o); }
+  renderVals() {
+    const self = this; const st = this.state;
+    const n = st.people.length + st.places.length + st.themes.length;
+    const chips = function (list, group) { return list.map(function (c) { const on = st[group].indexOf(c.id) >= 0;
+      return Object.assign({}, c, { pressed: on ? 'true' : 'false', bg: on ? '#4E2018' : '#F2F1F0', fg: on ? '#FFFFFF' : '#2E1712', tap: function () { self.__flip(group, c.id); } }); }); };
+    const people = this.__people().map(function (p) { const on = st.people.indexOf(p.id) >= 0;
+      return Object.assign({}, p, { on: on, pressed: on ? 'true' : 'false', ring: on ? '0 0 0 2px #FFFFFF, 0 0 0 4px #4E2018' : 'none', tap: function () { self.__flip('people', p.id); } }); });
+    return {
+      people: people, places: chips(this.__places(), 'places'), themes: chips(this.__themes(), 'themes'),
+      doneOp: '1', doneDis: 'false',
+      done: function (e) {
+        
+        try { window.sessionStorage.setItem('p5fnsauto', JSON.stringify({ people: st.people, places: st.places, themes: st.themes })); } catch (x) {}
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

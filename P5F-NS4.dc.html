@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.ph{display:block;width:100%;height:100%;object-fit:cover}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
+.btn:hover{color:#ffffff}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="position: absolute; left: 0; right: 0; top: 50px; padding: 0 20px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px"><div style="display: flex; flex-direction: column; gap: 0; min-width: 0"><a href="P5-sammlungen.dc.html" aria-label="Zurück zu Sammlungen" style="display: flex; align-items: center; gap: 2px; height: 28px; margin-left: -8px; color: #4E2018; font-size: 17px; font-weight: 500"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; stroke-width: 2.2"><path d="M15 5l-7 7 7 7"></path></svg>Sammlungen</a><h1 style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; color: #2E1712; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{name}}</h1></div></div>
+<div class="scroll" style="position: absolute; left: 0; right: 0; top: 112px; bottom: 0; overflow-y: auto; padding: 6px 0 120px; box-sizing: border-box">
+<sc-if value="{{filled}}" hint-placeholder-val="{{ false }}">
+<div style="margin: 0 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px">
+<sc-for list="{{photos}}" as="ph" hint-placeholder-count="3">
+<a href="{{ph.href}}" style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/{{ph.id}}" alt="" class="ph" style="object-position: {{ph.pos}}"></a>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<a href="P5-picker.dc.html" aria-label="Fotos hinzufügen" class="btn" style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 8; padding: 0 24px 0 18px; white-space: nowrap; box-shadow: 0 10px 24px rgba(78,32,24,0.32)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; stroke-width: 2.4"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>Fotos hinzufügen</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  // The new Sammlung (end of the P5F-NS1 flow), same layout as P5F-SH1. Title: the name from P5F-NS1 (p5fnsname).
+  // Automatisch (P5F-NS3 stored p5fnsauto): the matching photos from Johanna's library (__pool): people = any of them;
+  // then places, then themes narrow the result, but a pick that would leave no photo is ignored.
+  // Selbst auswählen (p5fnsauto cleared): empty until photos come back from P5-picker (p5fpicked, its numbers 0 to 17).
+  // Picked photos show first. Deleted photos (p5fdel) are hidden. Every tile opens its own photo (contract in __href).
+  // Also writes p5fnewcol { name, mode, cover }, which P5-sammlungen and P5F-SH3 read to show the new Sammlung as a tile.
+  // Johanna's library. who: Agent G's people tags (picker extras: Agent I). wo (place), was (theme): Agent I, by looking.
+  __pool() { return [
+      { id: '1ea585f1d21895a82535fcb168fc4865.jpg', pos: '50% 50%', who: 'ich lukas hanne theo', wo: 'zoo', was: 'ausfluege essen' },
+      { id: '21667a67aaaf063cbed76be758bf836a.jpg', pos: '50% 30%', who: 'ich lukas hanne theo', wo: 'zoo', was: 'ausfluege' },
+      { id: '25e1363891f310898b63c4aa634283cf.jpg', pos: '50% 40%', who: 'ich hanne theo', wo: 'zoo', was: 'ausfluege' },
+      { id: 'e03b67894975be13f1772284f97ce0bc.jpg', pos: '50% 5%', who: 'lukas hanne theo', wo: 'zoo', was: 'ausfluege' },
+      { id: '7c35610e627ae69f8306df6df3c13068.jpg', pos: '50% 5%', who: 'ich lukas hanne theo', wo: 'zoo', was: 'ausfluege' },
+      { id: '7d3a724d514cbce289825c4830aeb100.jpg', pos: '40% 30%', who: 'ich theo', wo: 'zoo', was: 'ausfluege' },
+      { id: '1e0c53175055327593230e0f7824130d.jpg', pos: '42% 36%', who: 'lukas hanne', wo: 'zuhause', was: 'spielen' },
+      { id: '03d7c0bfa1844716e6aa6b7f0b91ae88.jpg', pos: '51% 42%', who: 'lukas', wo: 'zuhause', was: '' },
+      { id: '469cf00c4ef38a38f51f18526f03bfb2.jpg', pos: '46% 42%', who: 'ich hanne', wo: 'zuhause', was: 'spielen' },
+      { id: 'a81f932c4ea08ed8e2caa47595436a7c.jpg', pos: '45% 35%', who: 'rosi karl hanne', wo: 'park', was: 'ausfluege' },
+      { id: '4ca52b1792f5a9ca998eb279a729da04.jpg', pos: '52% 50%', who: 'ich hanne', wo: '', was: '' },
+      { id: '62c95a789594ee7ca512fe8877eed8e0.jpg', pos: '47% 42%', who: 'hanne', wo: 'zuhause', was: '' },
+      { id: 'b132d2bcf24d52224f224c5d23a42915.jpg', pos: '50% 33%', who: 'ich hanne', wo: 'zuhause', was: 'spielen' },
+      { id: '417fecf471f141550813f39c83c3b812.jpg', pos: '36% 48%', who: 'lukas hanne', wo: 'zuhause', was: 'schlafen' },
+      { id: '02b9920f3dd7286c0fd992980b55502f.jpg', pos: '53% 40%', who: 'hanne', wo: 'zuhause', was: 'spielen' },
+      { id: '619a65fded7f4fb26e11e276c50b9b36.jpg', pos: '56% 43%', who: 'ich hanne', wo: '', was: '' },
+      { id: 'c416fc18921824977951ebb05b894278.jpg', pos: '55% 35%', who: 'ich hanne', wo: 'zuhause', was: 'spielen' },
+      { id: 'a1a21bc808bfb5d9034f3fc9c43f90de.jpg', pos: '50% 30%', who: 'lukas hanne', wo: 'park', was: 'ausfluege' },
+      { id: '6b2140ddddd76bc9781ad8cc613f578d.jpg', pos: '51% 42%', who: 'hanne', wo: 'zuhause', was: 'spielen' },
+      { id: 'dbc2ec4df22b2ac206b1a7536e1073fc.jpg', pos: '50% 40%', who: 'ich hanne', wo: '', was: 'ausfluege' },
+      { id: '2ff90518f825a8801dd79c5e168a18a5.jpg', pos: '50% 40%', who: 'ich hanne', wo: 'zuhause', was: '' },
+      { id: '823e5facdd3de1dd5c2d1f16f2be6cef.jpg', pos: '50% 40%', who: 'hanne', wo: 'zuhause', was: '' },
+      { id: '59b28f62cf337f5a499c77ffe55695f9.jpg', pos: '50% 40%', who: 'hanne', wo: 'zuhause', was: 'schlafen' },
+      { id: 'dcd1d3cda28160728720444f3b855a17.jpg', pos: '50% 40%', who: 'hanne', wo: 'zuhause', was: 'spielen' },
+      { id: 'ea909026b962e05c014114d1403503b9.jpg', pos: '50% 40%', who: 'lukas hanne', wo: 'zuhause', was: '' },
+      { id: '087137a6ae65685393b1a313680bfc46.jpg', pos: '50% 40%', who: 'hanne', wo: 'zuhause', was: 'essen' },
+      { id: 'bf54839138157ac13314876dccff0df4.jpg', pos: '50% 40%', who: 'lukas hanne', wo: 'zuhause', was: 'essen' },
+      { id: 'cc648fd311d75c953d000bc6b9554c85.jpg', pos: '50% 40%', who: 'lukas hanne', wo: 'zuhause', was: 'essen' },
+      { id: '36ae6b410ba2c900c129785a2c3a1ee4.jpg', pos: '50% 40%', who: 'ich lukas hanne', wo: 'strand', was: 'ausfluege' },
+      { id: '0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg', pos: '50% 40%', who: 'lukas hanne', wo: 'strand', was: 'ausfluege' }
+  ]; }
+  // P5-picker's photos in its tile order p0 to p17.
+  __picker() { return ['21667a67aaaf063cbed76be758bf836a.jpg', '25e1363891f310898b63c4aa634283cf.jpg', '1ea585f1d21895a82535fcb168fc4865.jpg', 'e03b67894975be13f1772284f97ce0bc.jpg', '7c35610e627ae69f8306df6df3c13068.jpg', '7d3a724d514cbce289825c4830aeb100.jpg', '4ca52b1792f5a9ca998eb279a729da04.jpg', 'c416fc18921824977951ebb05b894278.jpg', '417fecf471f141550813f39c83c3b812.jpg', '1e0c53175055327593230e0f7824130d.jpg', '087137a6ae65685393b1a313680bfc46.jpg', 'bf54839138157ac13314876dccff0df4.jpg', 'cc648fd311d75c953d000bc6b9554c85.jpg', 'a81f932c4ea08ed8e2caa47595436a7c.jpg', '6b59577f644a855e466f4318c596cb2a.jpg', '469cf00c4ef38a38f51f18526f03bfb2.jpg', '36ae6b410ba2c900c129785a2c3a1ee4.jpg', '0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg']; }
+  // PHOTO IDENTITY (shared contract, 19 Nov). A tile opens P5F-SO1.dc.html#ph=<blob id>&by=<uploader>.
+  // Kept: Lukas' photo 469cf00c opens P5F-SO9; Johanna's photos on P5-GA-09 open it with #p1 to #p4.
+  // Uploader: Johanna unless listed. Lukas: the photos on his person page (P5F-FA2). Rosi: what she put into Hanne.
+  // Ids are compared by their 32 hex characters only, so other boards may store them with or without a prefix.
+  __k(x) { const m = /[a-f0-9]{32}/.exec(String(x || '')); return m ? m[0] : ''; }
+  __ix() {
+    if (this.__ixc) return this.__ixc; const self = this; const by = {}; const ex = {};
+    '02b9920f3dd7286c0fd992980b55502f.jpg 25e1363891f310898b63c4aa634283cf.jpg 2ff90518f825a8801dd79c5e168a18a5.jpg 469cf00c4ef38a38f51f18526f03bfb2.jpg 59b28f62cf337f5a499c77ffe55695f9.jpg 619a65fded7f4fb26e11e276c50b9b36.jpg b132d2bcf24d52224f224c5d23a42915.jpg c416fc18921824977951ebb05b894278.jpg dcd1d3cda28160728720444f3b855a17.jpg 087137a6ae65685393b1a313680bfc46.jpg 0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg 501ac46f8866bccff28d1ec8b87ea6bc.jpg'.split(' ').forEach(function (i) { by[self.__k(i)] = 'lukas'; });
+    'f644eaf9563383dce442a25b6fea2d78.jpg 47d2c818065b47cc3accc1351f4b3b9d.jpg 2814e746cdfd2675d2433d1d21793142.jpg 0198420cf724a83777188ea30db88c18.jpg 210d489e1180fd7ef533c8619ace8f67.jpg 6e5678ac7a1dcd87114525bf72848dd5.jpg 8d767c5fe7327022ef91e4bdfc5f6293.jpg c6339f713bbb622dc0897e4601f6e67b.jpg 6b59577f644a855e466f4318c596cb2a.jpg 913a99d63058eab85a776ba3d4ef520f.jpg 1626a03281a37f42864447591e36fe4c.jpg 1ea585f1d21895a82535fcb168fc4865.jpg 21667a67aaaf063cbed76be758bf836a.jpg 7d3a724d514cbce289825c4830aeb100.jpg 823e5facdd3de1dd5c2d1f16f2be6cef.jpg 98fccb1d8e37b56ffd1e5d0234735f67.jpg a1a21bc808bfb5d9034f3fc9c43f90de.jpg a81f932c4ea08ed8e2caa47595436a7c.jpg e221fbd52df325fab75237a15dcebc51.jpg'.split(' ').forEach(function (i) { by[self.__k(i)] = 'rosi'; });
+    [['469cf00c4ef38a38f51f18526f03bfb2.jpg', 'P5F-SO9.dc.html'], ['03d7c0bfa1844716e6aa6b7f0b91ae88.jpg', 'P5-GA-09.dc.html#p1'], ['a81f932c4ea08ed8e2caa47595436a7c.jpg', 'P5-GA-09.dc.html#p2'], ['4ca52b1792f5a9ca998eb279a729da04.jpg', 'P5-GA-09.dc.html#p3'], ['62c95a789594ee7ca512fe8877eed8e0.jpg', 'P5-GA-09.dc.html#p4']].forEach(function (p) { ex[self.__k(p[0])] = p[1]; });
+    this.__ixc = { by: by, ex: ex }; return this.__ixc;
+  }
+  // by: force the uploader (Rosi's new photos); otherwise the table above and the kept exceptions apply.
+  __href(id, by) { const ix = this.__ix(); const k = this.__k(id); if (!by && ix.ex[k]) return ix.ex[k]; return 'P5F-SO1.dc.html#ph=' + id + '&by=' + (by || ix.by[k] || 'johanna'); }
+  __j(k, d) { try { const v = JSON.parse(window.sessionStorage.getItem(k) || 'null'); return v === null || v === undefined ? d : v; } catch (e) { return d; } }
+  // Deleted photos (p5fdel, written by every photo view's Löschen): hidden in every grid.
+  __del() { const self = this; const o = {}; const d = this.__j('p5fdel', []); (Array.isArray(d) ? d : []).forEach(function (i) { const k = self.__k(i); if (k) o[k] = true; }); return o; }
+  __name() { let n = ''; try { n = String(window.sessionStorage.getItem('p5fnsname') || '').trim(); if (!n) { const o = JSON.parse(window.sessionStorage.getItem('p5fnewcol') || 'null'); if (o && typeof o.name === 'string') n = o.name.trim(); } } catch (e) {} return n || 'Neue Sammlung'; }
+  __auto() {
+    const a = this.__j('p5fnsauto', null); if (!a || typeof a !== 'object') return null;
+    const arr = function (x) { return Array.isArray(x) ? x.filter(function (i) { return typeof i === 'string'; }) : []; };
+    const o = { people: arr(a.people), places: arr(a.places), themes: arr(a.themes) };
+    return o; // an automatic Sammlung with no picks takes all photos
+  }
+  __fill(a) {
+    const has = function (tags, picks) { const t = String(tags || '').split(' '); return picks.some(function (p) { return t.indexOf(p) >= 0; }); };
+    let r = this.__pool();
+    if (a.people.length) r = r.filter(function (x) { return has(x.who, a.people); });
+    if (a.places.length) { const r2 = r.filter(function (x) { return has(x.wo, a.places); }); if (r2.length) r = r2; }
+    if (a.themes.length) { const r2 = r.filter(function (x) { return has(x.was, a.themes); }); if (r2.length) r = r2; }
+    return r;
+  }
+  componentDidMount() {
+    const self = this;
+    // cover: the first photo's blob id ('' while empty), for a Sammlung tile that wants to show it
+    try { const f = this.renderVals().photos[0]; window.sessionStorage.setItem('p5fnewcol', JSON.stringify({ name: this.__name(), mode: this.__auto() ? 'auto' : 'hand', cover: f ? this.__k(f.id) : '' })); } catch (e) {}
+    try { window.addEventListener('pageshow', function (e) { if (e && e.persisted) self.forceUpdate(); }); } catch (e) {}
+  }
+  renderVals() {
+    const self = this; const del = this.__del(); const ids = this.__picker(); const pos = {};
+    this.__pool().forEach(function (x) { pos[self.__k(x.id)] = x.pos; });
+    let picked = []; const p = this.__j('p5fpicked', []);
+    if (Array.isArray(p)) picked = p.filter(function (i) { return typeof i === 'number' && ids[i]; }).map(function (i) { return ids[i]; });
+    const a = this.__auto(); const list = picked.concat(a ? this.__fill(a).map(function (x) { return x.id; }) : []);
+    const seen = {}; const photos = [];
+    list.forEach(function (id) { const k = self.__k(id); if (!k || seen[k] || del[k]) return; seen[k] = true;
+      photos.push({ id: id, href: self.__href(id), pos: pos[k] || '50% 35%' }); });
+    return { name: this.__name(), photos: photos, filled: photos.length > 0 };
+  }
+}
+</script>
+</body>
+</html>
