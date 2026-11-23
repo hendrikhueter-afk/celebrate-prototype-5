@@ -49,7 +49,7 @@ a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
 </sc-if>
 <sc-if value="{{sFiltered}}" hint-placeholder-val="{{ false }}"><div style="margin: 0 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; flex-shrink: 0"><sc-for list="{{hits}}" as="t" hint-placeholder-count="3"><a href="{{t.href}}" style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/{{t.id}}" alt="" class="ph" style="object-position: {{t.pos}}"></a></sc-for></div></sc-if>
 </div>
-<sc-if value="{{sClosed}}" hint-placeholder-val="{{ true }}"><a href="P5-picker.dc.html" aria-label="Fotos hinzufügen" class="btn" style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 8; padding: 0 24px 0 18px; white-space: nowrap; box-shadow: 0 10px 24px rgba(78,32,24,0.32)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; stroke-width: 2.4"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>Fotos hinzufügen</a></sc-if>
+<sc-if value="{{sClosed}}" hint-placeholder-val="{{ true }}"><sc-if value="{{filled}}" hint-placeholder-val="{{ true }}"><a href="P5-sammlungen.dc.html" class="btn" style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 8; padding: 0 28px; white-space: nowrap; box-shadow: 0 10px 24px rgba(78,32,24,0.32)">Sammlung erstellen</a></sc-if><sc-if value="{{empty}}" hint-placeholder-val="{{ false }}"><a href="P5-picker.dc.html" aria-label="Fotos hinzufügen" class="btn" style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 8; padding: 0 24px 0 18px; white-space: nowrap; box-shadow: 0 10px 24px rgba(78,32,24,0.32)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; stroke-width: 2.4"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>Fotos hinzufügen</a></sc-if></sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
@@ -194,7 +194,7 @@ class Component extends DCLogic {
         ring: on ? '0 0 0 2px #FFFFFF, 0 0 0 4px #4E2018' : 'none', tap: function (e) { self.__sSet(true, on ? '' : p.id, e); } }); });
     const hits = st.sPick ? photos.filter(function (x) { return x.who.indexOf(st.sPick) >= 0; }) : [];
     // the name sits between the back chevron and the icons: tab title size (P5-buecher), smaller steps for longer names
-    return { name: name, nameSize: name.length <= 10 ? 26 : name.length <= 14 ? 22 : 17, photos: photos, filled: n > 0,
+    return { name: name, nameSize: name.length <= 10 ? 26 : name.length <= 14 ? 22 : 17, photos: photos, filled: n > 0, empty: !(n > 0),
       count: n === 1 ? '1 Foto' : n + ' Fotos', showAll: n > 0 && !st.sPick, sFiltered: !!st.sPick, hits: hits, faces: faces,
       sOpen: !!st.sOpen, sClosed: !st.sOpen, scrollTop: st.sOpen ? 198 : 112,
       openSearch: function (e) { self.__sSet(true, '', e); }, closeSearch: function (e) { self.__sSet(false, '', e); },
