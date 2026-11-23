@@ -25,25 +25,40 @@ a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
 .ph{display:block;width:100%;height:100%;object-fit:cover}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
 .btn:hover{color:#ffffff}
+.pf{display:flex;flex-direction:column;align-items:center;gap:6px;width:48px;flex-shrink:0;padding:0;margin:0;border:0;background:none;font-family:inherit;color:#2E1712;cursor:pointer;transition:opacity 160ms ease}
+.face{display:block;flex-shrink:0;position:relative;overflow:hidden;border-radius:50%;background:#E2D9D6}
+.fc{position:absolute;height:auto;max-width:none;display:block}
+.sq{flex:1;min-width:0;height:44px;padding:0;border:0;background:transparent;font:inherit;font-size:16px;color:#2E1712;outline:0;caret-color:#4E2018}
+.sq::placeholder{color:#7A6259}
+@keyframes sin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.sin{animation:sin 200ms ease-out both}
+@media (prefers-reduced-motion: reduce){.pf,.sin{animation:none;transition:none}}
 </style>
 </helmet>
 <div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
-<div style="position: absolute; left: 0; right: 0; top: 50px; padding: 0 20px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px"><div style="display: flex; flex-direction: column; gap: 0; min-width: 0"><a href="P5-sammlungen.dc.html" aria-label="Zurück zu Sammlungen" style="display: flex; align-items: center; gap: 2px; height: 28px; margin-left: -8px; color: #4E2018; font-size: 17px; font-weight: 500"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; stroke-width: 2.2"><path d="M15 5l-7 7 7 7"></path></svg>Sammlungen</a><h1 style="margin: 0; font-size: 22px; line-height: 28px; font-weight: 700; color: #2E1712; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{name}}</h1></div><a href="P5F-NS1.dc.html#edit" style="flex-shrink: 0; height: 44px; margin-top: 26px; display: flex; align-items: center; color: #4E2018; font-size: 17px; font-weight: 500">Bearbeiten</a></div>
-<div class="scroll" style="position: absolute; left: 0; right: 0; top: 112px; bottom: 0; overflow-y: auto; padding: 6px 0 120px; box-sizing: border-box">
-<sc-if value="{{filled}}" hint-placeholder-val="{{ false }}">
-<div style="margin: 0 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px">
-<sc-for list="{{photos}}" as="ph" hint-placeholder-count="3">
-<a href="{{ph.href}}" style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/{{ph.id}}" alt="" class="ph" style="object-position: {{ph.pos}}"></a>
+<sc-if value="{{sClosed}}" hint-placeholder-val="{{ true }}"><div style="position: absolute; left: 0; right: 0; top: 50px; padding: 0 10px; height: 56px; display: flex; align-items: center; justify-content: space-between"><a href="P5-sammlungen.dc.html" aria-label="Zurück zu Sammlungen" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; stroke-width: 2.2"><path d="M15 5l-7 7 7 7"></path></svg></a><h1 style="margin: 0; position: absolute; left: 100px; right: 100px; text-align: center; font-size: {{nameSize}}px; line-height: 32px; font-weight: 700; color: #2E1712; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{name}}</h1><div style="display: flex; align-items: center; gap: 6px"><sc-if value="{{filled}}" hint-placeholder-val="{{ true }}"><span role="button" aria-label="Suchen" onClick="{{openSearch}}" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #2E1712; cursor: pointer"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg></span></sc-if><a href="P5F-NS1.dc.html#edit" aria-label="Bearbeiten" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg></a></div></div></sc-if>
+<sc-if value="{{sOpen}}" hint-placeholder-val="{{ false }}"><div class="sin" style="position: absolute; left: 0; right: 0; top: 50px; height: 56px; padding: 0 20px; display: flex; align-items: center; gap: 14px; z-index: 2"><label style="flex: 1; min-width: 0; height: 44px; border-radius: 22px; background: #F2F1F0; display: flex; align-items: center; gap: 8px; padding: 0 16px 0 14px; box-sizing: border-box; color: #7A6259; cursor: text"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg><input id="p5fq" class="sq" type="text" placeholder="Suchen" aria-label="Suchen" enterkeyhint="search" autocomplete="off" spellcheck="false" onInput="{{onQ}}"></label><a role="button" onClick="{{closeSearch}}" style="height: 44px; display: flex; align-items: center; font-size: 16px; font-weight: 400; color: #4E2018; cursor: pointer; white-space: nowrap">Abbrechen</a></div><div class="sin" role="group" aria-label="Personen" style="position: absolute; left: 0; right: 0; top: 120px; padding: 0 20px; display: flex; gap: 12px; z-index: 2"><sc-for list="{{faces}}" as="f" hint-placeholder-count="5"><button type="button" class="pf" aria-label="{{f.name}}" aria-pressed="{{f.pressed}}" onClick="{{f.tap}}" style="opacity: {{f.op}}"><span style="position: relative; display: block; width: 48px; height: 48px; border-radius: 50%; box-shadow: {{f.ring}}"><span class="face" style="width: 48px; height: 48px"><img src="{{f.src}}" alt="" class="fc" style="width: {{f.w}}; left: {{f.l}}; top: {{f.t}}"></span><sc-if value="{{f.on}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; right: -5px; top: -5px; width: 20px; height: 20px; border-radius: 50%; background: #4E2018; color: #FFFFFF; box-shadow: 0 0 0 2px #FFFFFF; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M7 7l10 10"></path><path d="M17 7L7 17"></path></svg></span></sc-if></span><span style="font-size: 13px; line-height: 17px; font-weight: 500; color: #2E1712; white-space: nowrap">{{f.name}}</span></button></sc-for></div></sc-if>
+<div class="scroll" style="position: absolute; left: 0; right: 0; top: {{scrollTop}}px; bottom: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 22px; padding: 6px 0 120px; box-sizing: border-box">
+<sc-if value="{{showAll}}" hint-placeholder-val="{{ true }}">
+<section style="display: flex; flex-direction: column; gap: 12px; flex-shrink: 0"><div style="padding: 0 20px; display: flex; align-items: baseline; justify-content: space-between"><span style="font-size: 20px; line-height: 26px; font-weight: 700; color: #2E1712">November 2026</span><span style="font-size: 14px; line-height: 18px; color: #8C746A">{{count}}</span></div>
+<div style="margin: 0 20px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px">
+<sc-for list="{{photos}}" as="ph" hint-placeholder-count="6">
+<a href="{{ph.href}}" style="display: block; grid-column: span {{ph.span}}; aspect-ratio: {{ph.ar}}; border-radius: {{ph.r}}px; overflow: hidden; background: #E8E5E3"><img src="img/{{ph.id}}" alt="" class="ph" style="object-position: {{ph.pos}}"></a>
 </sc-for>
-</div>
+</div></section>
 </sc-if>
+<sc-if value="{{sFiltered}}" hint-placeholder-val="{{ false }}"><div style="margin: 0 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; flex-shrink: 0"><sc-for list="{{hits}}" as="t" hint-placeholder-count="3"><a href="{{t.href}}" style="display: block; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: #E8E5E3"><img src="img/{{t.id}}" alt="" class="ph" style="object-position: {{t.pos}}"></a></sc-for></div></sc-if>
 </div>
-<a href="P5-picker.dc.html" aria-label="Fotos hinzufügen" class="btn" style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 8; padding: 0 24px 0 18px; white-space: nowrap; box-shadow: 0 10px 24px rgba(78,32,24,0.32)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; stroke-width: 2.4"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>Fotos hinzufügen</a>
+<sc-if value="{{sClosed}}" hint-placeholder-val="{{ true }}"><a href="P5-picker.dc.html" aria-label="Fotos hinzufügen" class="btn" style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); z-index: 8; padding: 0 24px 0 18px; white-space: nowrap; box-shadow: 0 10px 24px rgba(78,32,24,0.32)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; stroke-width: 2.4"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>Fotos hinzufügen</a></sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
-  // The new Sammlung (end of the P5F-NS1 flow), same layout as P5F-SH1. Title: the name from P5F-NS1 (p5fnsname).
+  // The new Sammlung (end of the P5F-NS1 flow). It is the normal Sammlung view, same screen type as P5F-SH4 (23 Nov):
+  // one header row (back chevron, the name centred, icons right), month heading with count, the mosaic grid, "Fotos hinzufügen".
+  // Header icons: search as in P5F-SH4 (only when there are photos), and the pencil (the "Bearbeiten" icon of P5-buecher),
+  // which opens P5F-NS1.dc.html#edit to change name and rules. No share icon: P5F-SH2 only shares Hanne.
+  // Title: the name from P5F-NS1 (p5fnsname).
   // Automatisch (P5F-NS3 stored p5fnsauto): the matching photos from Johanna's library (__pool): people = any of them;
   // then places, then themes narrow the result, but a pick that would leave no photo is ignored.
   // Selbst auswählen (p5fnsauto cleared): empty until photos come back from P5-picker (p5fpicked, its numbers 0 to 17).
@@ -104,7 +119,40 @@ class Component extends DCLogic {
   __name() { let n = ''; try { n = String(window.sessionStorage.getItem('p5fnsname') || '').trim(); if (!n) { const o = JSON.parse(window.sessionStorage.getItem('p5fnewcol') || 'null'); if (o && typeof o.name === 'string') n = o.name.trim(); } } catch (e) {} return n || 'Neue Sammlung'; }
   // Opened outside the flow (the canvas board, a direct link: no name, no stored Sammlung, no picks): the board shows the
   // automatically filled Sammlung and stores nothing, so no nameless tile turns up on P5-sammlungen or P5F-SH3.
-  constructor(props) { super(props); this.__dir = this.__direct(); }
+  constructor(props) { super(props); this.__dir = this.__direct(); this.state = this.__sRestore(); }
+  // SEARCH, as in P5F-SH4: the icon opens a field and one row of the people on this Sammlung's photos; a face filters the photos.
+  // It survives a trip into a photo view (sessionStorage p5fsearch, entry 'P5F-NS4.dc.html'); a direct open stores nothing.
+  __sPeople() { return [
+      { id: 'hanne', name: 'Hanne', alias: 'hanne', src: 'img/62c95a789594ee7ca512fe8877eed8e0.jpg', w: '150%', l: '-21%', t: '-18%' },
+      { id: 'ich', name: 'Ich', alias: 'johanna', src: 'img/8cf0d595ab1f6813c6f743c8fe2df920.jpg', w: '172.3%', l: '-27.9%', t: '-40.4%' },
+      { id: 'lukas', name: 'Lukas', alias: 'lukas', src: 'img/03d7c0bfa1844716e6aa6b7f0b91ae88.jpg', w: '160%', l: '-23.2%', t: '-42%' },
+      { id: 'theo', name: 'Theo', alias: 'theo', src: 'img/9f8ac47fc93a6aaa1c39f72464370b8c.jpg', w: '190%', l: '-48%', t: '-50%' },
+      { id: 'rosi', name: 'Rosi', alias: 'oma', src: 'img/98fccb1d8e37b56ffd1e5d0234735f67.jpg', w: '350%', l: '-182.2%', t: '-30.8%' },
+      { id: 'karl', name: 'Karl', alias: 'opa', src: 'img/e221fbd52df325fab75237a15dcebc51.jpg', w: '539.4%', l: '-266.1%', t: '-81.1%' }
+  ]; }
+  __sAll() { try { const v = JSON.parse(window.sessionStorage.getItem('p5fsearch') || 'null'); return v && typeof v === 'object' ? v : {}; } catch (e) { return {}; } }
+  __sSave(open, pick) { if (this.__dir) return; try { const a = this.__sAll(); if (open) a['P5F-NS4.dc.html'] = { who: pick || '' }; else delete a['P5F-NS4.dc.html']; window.sessionStorage.setItem('p5fsearch', JSON.stringify(a)); } catch (e) {} }
+  __sRestore() {
+    let ref = ''; try { ref = String(document.referrer || '').split('#')[0].split('?')[0].split('/').pop() || ''; } catch (e) {}
+    const s = this.__sAll()['P5F-NS4.dc.html'];
+    if (s && typeof s === 'object' && /^(P5F-SO(1|3|9)|P5-GA-09)\.dc\.html$/.test(ref)) {
+      const ok = this.__sPeople().some(function (p) { return p.id === s.who; });
+      return { sOpen: true, sPick: ok ? s.who : '', sQ: '' };
+    }
+    if (s) this.__sSave(false, '');
+    return { sOpen: false, sPick: '', sQ: '' };
+  }
+  __sSet(open, pick, e) { if (e && e.preventDefault) e.preventDefault(); this.__sSave(open, pick); this.setState({ sOpen: open, sPick: pick, sQ: open ? this.state.sQ : '' }); try { const sc = document.querySelector('.scroll'); if (sc) sc.scrollTop = 0; } catch (x) {} }
+  // The grid of P5F-SH4: rows of one wide photo, two tall ones or three squares, on six columns. From six photos on;
+  // fewer photos, and a last row that would not fill, are plain squares.
+  __mosaic(photos) {
+    const rows = [1, 2, 3, 1, 3, 2, 3, 2]; const n = photos.length; let i = 0; let r = 0;
+    while (i < n) {
+      let c = n < 6 ? 3 : rows[r % rows.length]; if (n - i < c) c = 3; r++;
+      for (let j = 0; j < c && i < n; j++, i++) Object.assign(photos[i], c === 1 ? { span: 6, ar: '3 / 2', r: 16 } : c === 2 ? { span: 3, ar: '2 / 3', r: 16 } : { span: 2, ar: '1', r: 12 });
+    }
+    return photos;
+  }
   __direct() { try { const s = window.sessionStorage; return !s.getItem('p5fnsname') && !s.getItem('p5fnewcol') && !s.getItem('p5fnsauto') && !s.getItem('p5fpicked'); } catch (e) { return true; } }
   __auto() {
     const a = this.__j('p5fnsauto', null); if (!a || typeof a !== 'object') return this.__dir ? { people: [], places: [], themes: [] } : null;
@@ -128,14 +176,29 @@ class Component extends DCLogic {
   }
   renderVals() {
     const self = this; const del = this.__del(); const ids = this.__picker(); const pos = {};
-    this.__pool().forEach(function (x) { pos[self.__k(x.id)] = x.pos; });
+    const who = {}; this.__pool().forEach(function (x) { pos[self.__k(x.id)] = x.pos; who[self.__k(x.id)] = String(x.who || '').split(' '); });
     let picked = []; const p = this.__j('p5fpicked', []);
     if (Array.isArray(p)) picked = p.filter(function (i) { return typeof i === 'number' && ids[i]; }).map(function (i) { return ids[i]; });
     const a = this.__auto(); const list = picked.concat(a ? this.__fill(a).map(function (x) { return x.id; }) : []);
     const seen = {}; const photos = [];
     list.forEach(function (id) { const k = self.__k(id); if (!k || seen[k] || del[k]) return; seen[k] = true;
-      photos.push({ id: id, href: self.__href(id), pos: pos[k] || '50% 35%' }); });
-    return { name: this.__name(), photos: photos, filled: photos.length > 0 };
+      photos.push({ id: id, href: self.__href(id), pos: pos[k] || '50% 35%', who: who[k] || [] }); });
+    this.__mosaic(photos);
+    const st = this.state; const name = this.__name(); const n = photos.length; const q = String(st.sQ || '').trim().toLowerCase();
+    // faces: only people who are on a photo of this Sammlung
+    const faces = this.__sPeople().filter(function (p) {
+      if (!photos.some(function (x) { return x.who.indexOf(p.id) >= 0; })) return false;
+      return p.id === st.sPick || !q || p.name.toLowerCase().indexOf(q) === 0 || p.alias.indexOf(q) === 0;
+    }).map(function (p) { const on = st.sPick === p.id;
+      return Object.assign({}, p, { on: on, pressed: on ? 'true' : 'false', op: st.sPick && !on ? '0.4' : '1',
+        ring: on ? '0 0 0 2px #FFFFFF, 0 0 0 4px #4E2018' : 'none', tap: function (e) { self.__sSet(true, on ? '' : p.id, e); } }); });
+    const hits = st.sPick ? photos.filter(function (x) { return x.who.indexOf(st.sPick) >= 0; }) : [];
+    // the name sits between the back chevron and the icons: tab title size (P5-buecher), smaller steps for longer names
+    return { name: name, nameSize: name.length <= 10 ? 26 : name.length <= 14 ? 22 : 17, photos: photos, filled: n > 0,
+      count: n === 1 ? '1 Foto' : n + ' Fotos', showAll: n > 0 && !st.sPick, sFiltered: !!st.sPick, hits: hits, faces: faces,
+      sOpen: !!st.sOpen, sClosed: !st.sOpen, scrollTop: st.sOpen ? 198 : 112,
+      openSearch: function (e) { self.__sSet(true, '', e); }, closeSearch: function (e) { self.__sSet(false, '', e); },
+      onQ: function (e) { self.setState({ sQ: String((e && e.target && e.target.value) || '') }); } };
   }
 }
 </script>
