@@ -127,8 +127,8 @@ img[alt="celebrate"]{filter:none}
   <div style="position: absolute; left: 24px; right: 24px; top: 520px"><h1 class="h0" style="text-align: left; margin: 0 0 12px; font-size: 27px; line-height: 33px">Euer Leben, für immer festgehalten.</h1><p style="margin: 0; font-size: 16px; line-height: 23px; color: #2E1712">Eure Auswahl landet gedruckt in eurem Buch.</p></div>
 </div>
 <div style="position: absolute; left: 16px; right: 16px; bottom: 34px">
-  <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 18px"><a href="V3-LM2-ob-00E-s1-z2se.dc.html" aria-label="Schritt 1" style="display: block; width: {{dw1}}; height: 8px; border-radius: 999px; background: {{dc1}}"></a><a href="V3-LM2-ob-00E-s2-kwn3.dc.html" aria-label="Schritt 2" style="display: block; width: {{dw2}}; height: 8px; border-radius: 999px; background: {{dc2}}"></a><a href="V3-LM2-ob-00E-s3-kwyh.dc.html" aria-label="Schritt 3" style="display: block; width: {{dw3}}; height: 8px; border-radius: 999px; background: {{dc3}}"></a></div>
-  <a href="V3-LM2-ob-00E-s3-kwyh.dc.html" class="btn" role="button" style="width: 100%; display: {{btnNext}}">Weiter</a>
+  <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 18px"><a href="V3-LM2-ob-00E-s1-z2se.dc.html" aria-label="Schritt 1" style="display: block; width: {{dw1}}; height: 8px; border-radius: 999px; background: {{dc1}}"></a><a href="V3-LM2-ob-00E-s2-kwn3.dc.html" aria-label="Schritt 2" style="display: block; width: {{dw2}}; height: 8px; border-radius: 999px; background: {{dc2}}"></a><a href="V3-LM2-ob-00E-s3-kwyh.dc.html" aria-label="Schritt 3" style="display: block; width: {{dw3}}; height: 8px; border-radius: 999px; background: {{dc3}}"></a><a href="V3-LM2-ob-00E-s4.dc.html" aria-label="Schritt 4" style="display: block; width: {{dw4}}; height: 8px; border-radius: 999px; background: {{dc4}}"></a></div>
+  <a href="V3-LM2-ob-00E-s4.dc.html" class="btn" role="button" style="width: 100%; display: {{btnNext}}">Weiter</a>
   <a href="V3-LM2-ob-02-o9la.dc.html" class="btn" role="button" style="width: 100%; display: {{btnGo}}">Los geht's</a>
 </div>
 </div>
@@ -148,7 +148,7 @@ class Component extends DCLogic {
     this.__init = Object.assign({}, this.state); }
   renderVals() {
     const s = this.state.step; const v = {};
-    for (const i of [1,2,3]) {
+    for (const i of [1,2,3,4]) {
       v['p'+i] = s === i ? 'block' : 'none';
       v['dw'+i] = s === i ? '22px' : '8px';
       v['dc'+i] = s === i ? '#2E1712' : '#D9D5D2';
@@ -157,7 +157,7 @@ class Component extends DCLogic {
     v.heroD = this.state.rp ? 'none' : 'block';
     v.replay = () => { this.setState({ rp: true }); setTimeout(() => this.setState({ rp: false }), 40); };
     v.next = () => this.setState({ step: Math.min(3, s + 1) });
-    v.btnNext = s < 3 ? 'flex' : 'none'; v.btnGo = s === 3 ? 'flex' : 'none';
+    v.btnNext = s < 4 ? 'flex' : 'none'; v.btnGo = s === 4 ? 'flex' : 'none';
     return v;
   }
 }

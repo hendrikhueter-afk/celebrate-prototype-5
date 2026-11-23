@@ -102,8 +102,12 @@ class Component extends DCLogic {
   // Deleted photos (p5fdel, written by every photo view's Löschen): hidden in every grid.
   __del() { const self = this; const o = {}; const d = this.__j('p5fdel', []); (Array.isArray(d) ? d : []).forEach(function (i) { const k = self.__k(i); if (k) o[k] = true; }); return o; }
   __name() { let n = ''; try { n = String(window.sessionStorage.getItem('p5fnsname') || '').trim(); if (!n) { const o = JSON.parse(window.sessionStorage.getItem('p5fnewcol') || 'null'); if (o && typeof o.name === 'string') n = o.name.trim(); } } catch (e) {} return n || 'Neue Sammlung'; }
+  // Opened outside the flow (the canvas board, a direct link: no name, no stored Sammlung, no picks): the board shows the
+  // automatically filled Sammlung and stores nothing, so no nameless tile turns up on P5-sammlungen or P5F-SH3.
+  constructor(props) { super(props); this.__dir = this.__direct(); }
+  __direct() { try { const s = window.sessionStorage; return !s.getItem('p5fnsname') && !s.getItem('p5fnewcol') && !s.getItem('p5fnsauto') && !s.getItem('p5fpicked'); } catch (e) { return true; } }
   __auto() {
-    const a = this.__j('p5fnsauto', null); if (!a || typeof a !== 'object') return null;
+    const a = this.__j('p5fnsauto', null); if (!a || typeof a !== 'object') return this.__dir ? { people: [], places: [], themes: [] } : null;
     const arr = function (x) { return Array.isArray(x) ? x.filter(function (i) { return typeof i === 'string'; }) : []; };
     const o = { people: arr(a.people), places: arr(a.places), themes: arr(a.themes) };
     return o; // an automatic Sammlung with no picks takes all photos
@@ -118,8 +122,8 @@ class Component extends DCLogic {
   }
   componentDidMount() {
     const self = this;
-    // cover: the first photo's blob id ('' while empty), for a Sammlung tile that wants to show it
-    try { const f = this.renderVals().photos[0]; window.sessionStorage.setItem('p5fnewcol', JSON.stringify({ name: this.__name(), mode: this.__auto() ? 'auto' : 'hand', cover: f ? this.__k(f.id) : '' })); } catch (e) {}
+    // cover: the first photo's id as the grid uses it ('' while empty), shown on the Sammlung tile of P5-sammlungen and P5F-SH3
+    try { const f = this.renderVals().photos[0]; if (!this.__dir) window.sessionStorage.setItem('p5fnewcol', JSON.stringify({ name: this.__name(), mode: this.__auto() ? 'auto' : 'hand', cover: f ? f.id : '' })); } catch (e) {}
     try { window.addEventListener('pageshow', function (e) { if (e && e.persisted) self.forceUpdate(); }); } catch (e) {}
   }
   renderVals() {

@@ -102,9 +102,25 @@ section+section .sh{margin-top:16px}
 .yh{display:none;align-items:flex-end;height:46px;padding:0 20px 11px;box-sizing:border-box}
 .split>.yh{display:flex}
 .yh h3{margin:0;font-size:14px;line-height:18px;font-weight:500;color:#7A6259}
+/* suggestions: cover tiles, three across, no controls; an open one takes the full width and is the book as everywhere else */
+[data-sec="sugg"]:not(.empty){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:14px;padding:0 20px}
+[data-sec="sugg"]>.sh{grid-column:1 / -1;margin-left:-20px;margin-right:-20px;margin-bottom:6px}
+[data-sec="sugg"]>.yh{display:none}
+[data-sec="sugg"]>.list{display:contents!important}
+[data-sec="sugg"]>.list>.bk.open{grid-column:1 / -1;margin-left:-20px;margin-right:-20px}
+[data-sec="sugg"]>.list>.bk:not(.open){grid-template:'rail' auto 'head' auto 'foot' auto / minmax(0,1fr);margin-bottom:16px}
+[data-sec="sugg"]>.list>.bk:not(.open) .bk-rail{height:147px;padding:2px 0 12px}
+[data-sec="sugg"]>.list>.bk:not(.open) .bk-cov{zoom:0.5405}
+[data-sec="sugg"]>.list>.bk:not(.open) .bk-head{align-self:start;padding:0}
+[data-sec="sugg"]>.list>.bk:not(.open) .bk-title{min-height:0;align-items:flex-start;font-size:14px;line-height:18px}
+[data-sec="sugg"]>.list>.bk:not(.open) .bk-new{display:none}
+[data-sec="sugg"]>.list>.bk:not(.open) .bk-acts{grid-area:head;align-self:start;height:0;margin:0;overflow:hidden;visibility:hidden}
 
 
 .ib{position:relative;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2E1712;flex-shrink:0;border:0;background:none;padding:0;cursor:pointer}
+.bk-acts .ib{width:40px;height:40px}
+.bk-acts .ib>svg{width:20px!important;height:20px!important}
+.bk-acts .bdg{top:1px;right:-1px}
 .bdg{position:absolute;top:3px;right:1px;width:18px;height:18px;border-radius:9px;background:#4E2018;box-shadow:0 0 0 2px #FFFFFF;color:#FFFFFF;display:none;align-items:center;justify-content:center}
 .bk.inb .bdg{display:flex}
 .tr{position:relative;display:block;height:44px;touch-action:none;cursor:pointer;outline:0}
