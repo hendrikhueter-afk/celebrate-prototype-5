@@ -21,51 +21,65 @@ body{margin:0;background:#FFFFFF}
 a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
 .ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
 .nsname::placeholder{color:#8C746A;opacity:1}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box;transition:opacity 0.16s ease}
+.btn:hover{color:#ffffff}
 .nsopt{transition:transform 0.12s ease, background-color 0.12s ease, opacity 0.16s ease}.nsopt:active{transform:scale(0.97);background:#E9E6E4}
 </style>
 </helmet>
 <div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
-<div style="position: absolute; left: 0; right: 0; top: 44px; height: 44px; padding: 0 14px; display: flex; align-items: center; z-index: 4"><a href="P5-sammlungen.dc.html" aria-label="Zurück" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; stroke-width: 2.2"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
+<div style="position: absolute; left: 0; right: 0; top: 44px; height: 44px; padding: 0 14px; display: flex; align-items: center; z-index: 4"><a href="{{back}}" aria-label="Zurück" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px; stroke-width: 2.2"><path d="M15 5l-7 7 7 7"></path></svg></a></div>
 <div style="position: absolute; left: 20px; right: 20px; top: 104px; display: flex; flex-direction: column; gap: 28px">
-<h1 style="margin: 0; font-size: 26px; line-height: 32px; font-weight: 700; color: #2E1712; text-align: center">Neue Sammlung</h1>
-<input id="p5f-ns-name" class="nsname" type="text" placeholder="Name" aria-label="Name" autocomplete="off" spellcheck="false" maxlength="40" enterkeyhint="done" onInput="{{onName}}" onKeyDown="{{onKey}}" style="display: block; width: 100%; height: 56px; box-sizing: border-box; padding: 0 18px; border: 0; border-radius: 16px; background: #F2F1F0; font-family: inherit; font-size: 17px; line-height: 22px; color: #2E1712; caret-color: #4E2018; outline: none">
+<h1 style="margin: 0; font-size: 26px; line-height: 32px; font-weight: 700; color: #2E1712; text-align: center">{{title}}</h1>
+<input id="p5f-ns-name" class="nsname" type="text" placeholder="Name" aria-label="Name" autocomplete="off" spellcheck="false" maxlength="40" enterkeyhint="done" onInput="{{onName}}" onKeyDown="{{onKey}}" style="display: block; width: 100%; height: 56px; box-sizing: border-box; padding: 0 18px; border: 0; border-radius: 16px; background: #F2F1F0; font-family: inherit; font-size: 17px; line-height: 22px; color: #2E1712; caret-color: #4E2018; outline: none" data-om-label="Name der Sammlung">
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
-<a href="P5F-NS3.dc.html" onClick="{{goAuto}}" aria-disabled="{{dis}}" class="nsopt" style="aspect-ratio: 4 / 5; border-radius: 22px; background: #F2F1F0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 16px; box-sizing: border-box; text-align: center; opacity: {{op}}"><span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; color: #4E2018; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 30px; height: 30px; stroke-width: 1.7"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path></svg></span><span style="font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Automatisch befüllen</span></a>
-<a href="P5F-NS4.dc.html" onClick="{{goSelf}}" aria-disabled="{{dis}}" class="nsopt" style="aspect-ratio: 4 / 5; border-radius: 22px; background: #F2F1F0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 16px; box-sizing: border-box; text-align: center; opacity: {{op}}"><span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; color: #4E2018; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 30px; height: 30px; stroke-width: 1.7"><path d="M22 14a8 8 0 0 1-8 8"></path><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"></path><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"></path><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></span><span style="font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Selbst auswählen</span></a>
+<button type="button" onClick="{{goAuto}}" aria-pressed="{{aOn}}" class="nsopt" style="position: relative; border: 0; font-family: inherit; cursor: pointer; aspect-ratio: 4 / 5; border-radius: 22px; background: #F2F1F0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 16px; box-sizing: border-box; text-align: center; box-shadow: {{aRing}}"><sc-if value="{{aChk}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; right: 12px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: #4E2018; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke-width: 2.8"><path d="M5 12l4 4L19 6"></path></svg></span></sc-if><span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; color: #4E2018; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 30px; height: 30px; stroke-width: 1.7"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path></svg></span><span style="font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Automatisch befüllen</span></button>
+<button type="button" onClick="{{goSelf}}" aria-pressed="{{sOn}}" class="nsopt" style="position: relative; border: 0; font-family: inherit; cursor: pointer; aspect-ratio: 4 / 5; border-radius: 22px; background: #F2F1F0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 16px; box-sizing: border-box; text-align: center; box-shadow: {{sRing}}"><sc-if value="{{sChk}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; right: 12px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: #4E2018; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 14px; height: 14px; stroke-width: 2.8"><path d="M5 12l4 4L19 6"></path></svg></span></sc-if><span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; color: #4E2018; display: flex; align-items: center; justify-content: center"><svg class="ic" viewBox="0 0 24 24" style="width: 30px; height: 30px; stroke-width: 1.7"><path d="M22 14a8 8 0 0 1-8 8"></path><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"></path><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"></path><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></span><span style="font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Selbst auswählen</span></button>
 </div>
 </div>
+<a href="{{next}}" onClick="{{go}}" aria-disabled="{{dis}}" class="btn" style="position: absolute; left: 20px; right: 20px; bottom: 34px; opacity: {{op}}">Weiter</a>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
-  // New Sammlung, one screen (Hendrik, 19 Nov): the name, then the choice how it fills. Tapping a choice continues.
-  // Until a name is typed the two choices are dimmed; tapping one then puts the cursor into the name field.
+  // New Sammlung, one screen: the name, then the choice how it fills. "Automatisch befüllen" is pre-picked (Hendrik, 20 Nov);
+  // tapping a choice only selects it, Weiter continues. Until a name is typed Weiter is dimmed; tapping it then puts the cursor into the name field.
   // The name goes to sessionStorage p5fnsname (read by P5F-NS3 and P5F-NS4).
   // Automatisch: P5F-NS3 (who, where, what). Selbst auswählen: the empty Sammlung P5F-NS4 (p5fnsauto cleared).
   // Either way a new Sammlung starts without picked photos (p5fpicked cleared) and without old picks (p5fnsauto cleared).
-  constructor(props) { super(props); this.state = { has: false }; }
+  constructor(props) { super(props); this.state = { has: false, auto: this.__edit() ? this.__mode() : true }; }
   __el() { try { return document.getElementById('p5f-ns-name'); } catch (e) { return null; } }
   __typed() { const n = this.__el(); return n ? String(n.value || '').replace(/\s+/g, ' ').trim() : ''; }
+  // Edit mode (P5F-NS4 "Bearbeiten" opens P5F-NS1.dc.html#edit): same screen, title "Sammlung bearbeiten", name and choice
+  // prefilled from the Sammlung (p5fnsname, p5fnsauto present = automatisch), back returns to the Sammlung, nothing is cleared.
+  __edit() { try { return String(window.location.hash || '').indexOf('edit') >= 0; } catch (e) { return false; } }
+  __mode() { try { return !!window.sessionStorage.getItem('p5fnsauto'); } catch (e) { return true; } }
   __from() { try { return String(document.referrer || '').split('#')[0].split('?')[0].split('/').pop() || ''; } catch (e) { return ''; } }
   componentDidMount() {
     // back from P5F-NS3: show the name again; any other way in starts a fresh Sammlung
     const n = this.__el(); let keep = '';
-    try { if (this.__from() === 'P5F-NS3.dc.html') keep = window.sessionStorage.getItem('p5fnsname') || ''; else window.sessionStorage.removeItem('p5fnsname'); } catch (e) {}
+    try { if (this.__edit()) { keep = window.sessionStorage.getItem('p5fnsname') || ''; if (!keep) { const o = JSON.parse(window.sessionStorage.getItem('p5fnewcol') || 'null'); if (o && typeof o.name === 'string') keep = o.name; } } else if (this.__from() === 'P5F-NS3.dc.html') keep = window.sessionStorage.getItem('p5fnsname') || ''; else window.sessionStorage.removeItem('p5fnsname'); } catch (e) {}
     if (n && keep) { n.value = keep; this.setState({ has: true }); }
   }
-  __go(e, auto) {
+  __go(e) {
     const v = this.__typed();
     if (!v) { if (e && e.preventDefault) e.preventDefault(); const n = this.__el(); if (n) n.focus(); return; }
-    try { window.sessionStorage.setItem('p5fnsname', v); window.sessionStorage.removeItem('p5fpicked'); window.sessionStorage.removeItem('p5fnsauto'); } catch (x) {}
+    try { window.sessionStorage.setItem('p5fnsname', v);
+      if (this.__edit()) { if (this.state.auto === false) window.sessionStorage.removeItem('p5fnsauto'); }
+      else { window.sessionStorage.removeItem('p5fpicked'); window.sessionStorage.removeItem('p5fnsauto'); } } catch (x) {}
   }
   renderVals() {
-    const self = this; const has = !!this.state.has;
+    const self = this; const has = !!this.state.has; const auto = this.state.auto !== false; const edit = this.__edit();
     return {
       op: has ? '1' : '0.35', dis: has ? 'false' : 'true',
       onName: function () { const v = self.__typed(); try { if (v) window.sessionStorage.setItem('p5fnsname', v); else window.sessionStorage.removeItem('p5fnsname'); } catch (e) {} if (!!v !== self.state.has) self.setState({ has: !!v }); },
       onKey: function (e) { if (e && e.key === 'Enter') { if (e.preventDefault) e.preventDefault(); const n = self.__el(); if (n) n.blur(); } },
-      goAuto: function (e) { self.__go(e, true); },
-      goSelf: function (e) { self.__go(e, false); }
+      goAuto: function () { self.setState({ auto: true }); },
+      goSelf: function () { self.setState({ auto: false }); },
+      go: function (e) { self.__go(e); },
+      next: auto ? (edit ? 'P5F-NS3.dc.html#edit' : 'P5F-NS3.dc.html') : 'P5F-NS4.dc.html',
+      back: edit ? 'P5F-NS4.dc.html' : 'P5-sammlungen.dc.html', title: edit ? 'Sammlung bearbeiten' : 'Neue Sammlung',
+      aOn: auto ? 'true' : 'false', sOn: auto ? 'false' : 'true', aChk: auto, sChk: !auto,
+      aRing: auto ? 'inset 0 0 0 2px #4E2018' : 'none', sRing: auto ? 'none' : 'inset 0 0 0 2px #4E2018'
     };
   }
 }
