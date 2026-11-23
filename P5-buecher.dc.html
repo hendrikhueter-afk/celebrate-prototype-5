@@ -258,19 +258,18 @@ section{display:flex}
 .sv-plank{position:relative;height:58px;margin-top:-7px;background:url(img/645083c949275b789b01e4432ab17812.jpg) 0 0/390px 58px no-repeat}
 .sv-name{position:absolute;top:23px;font-size:14px;line-height:18px;font-weight:500;color:#6B5852;white-space:nowrap}
 .sv-vase{display:block;width:60px;height:127px;margin-left:auto;margin-bottom:-1px;mix-blend-mode:multiply;pointer-events:none}
-.sp{position:relative;box-sizing:border-box;flex-shrink:0;width:calc(44px + 14px * var(--p));height:calc(var(--sh) * (0.9 + 0.1 * var(--p)));border:1.6px solid #3A1810;border-bottom-width:0;border-radius:5px 5px 0 0;padding:17px 0 15px;margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;overflow:hidden;font-family:inherit;font-size:13.5px;line-height:1;font-weight:500;cursor:pointer;-webkit-tap-highlight-color:transparent;color:#FFFFFF;background:var(--c);--rib:rgba(46,23,18,.5)}
-.sp::before,.sp::after{content:"";position:absolute;left:0;right:0;height:3px;border-top:1.6px solid var(--rib);border-bottom:1.6px solid var(--rib)}
-.sp::before{top:6px}
-.sp::after{bottom:5px}
-.sp-t{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+/* a spine is a hardcover seen from the back: thickness from the page count (--w), height from format and size (--hf), colour from the cover (--c).
+   The light falls from the left over a slightly rounded back, a hinge groove runs beside each edge, a fine weave gives the linen. */
+.sp{position:relative;box-sizing:border-box;flex-shrink:0;width:var(--w);height:calc(var(--sh) * var(--hf));border:0;border-radius:3px 3px 1px 1px;padding:13px 0 11px;margin:0;display:flex;flex-direction:column;align-items:center;gap:7px;overflow:hidden;font-family:'DM Sans',system-ui,sans-serif;font-size:13px;line-height:1;font-weight:800;letter-spacing:.1px;cursor:pointer;-webkit-tap-highlight-color:transparent;color:#FFFFFF;text-shadow:0 .5px 0 rgba(0,0,0,.22);background-color:var(--c);background-image:linear-gradient(90deg,rgba(0,0,0,.22) 0,rgba(0,0,0,.06) 11%,rgba(255,255,255,.07) 27%,rgba(255,255,255,.14) 40%,rgba(255,255,255,.03) 58%,rgba(0,0,0,.06) 82%,rgba(0,0,0,.24) 100%),linear-gradient(180deg,rgba(255,255,255,.12) 0,rgba(255,255,255,0) 9px,rgba(0,0,0,0) calc(100% - 16px),rgba(0,0,0,.12) 100%);box-shadow:inset 0 0 0 .5px rgba(46,23,18,.3),0 1px 2px rgba(46,23,18,.4),3px 0 5px -3px rgba(46,23,18,.35)}
+.sp::before,.sp::after{content:"";position:absolute;inset:0;pointer-events:none}
+.sp::before{background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,rgba(255,255,255,0) 1px 2px),repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0 1px,rgba(0,0,0,0) 1px 2px)}
+.sp::after{background:linear-gradient(90deg,rgba(0,0,0,0) 3px,rgba(0,0,0,.2) 4.5px,rgba(255,255,255,.16) 5.5px,rgba(255,255,255,0) 7px),linear-gradient(270deg,rgba(0,0,0,0) 3px,rgba(0,0,0,.2) 4.5px,rgba(255,255,255,.12) 5.5px,rgba(255,255,255,0) 7px)}
+.sp-t{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
 .sp-t span{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
-.sp-ph{display:block;flex-shrink:0;width:30px;height:30px;box-sizing:border-box;border-radius:50%;overflow:hidden;border:1.6px solid #3A1810;background:#E2D9D6}
-.sp-ph img{display:block;width:100%;height:100%;object-fit:cover}
-.sp[data-state="done"]{background-image:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,0) 30%,rgba(0,0,0,0) 72%,rgba(0,0,0,.12))}
-.sp[data-state="work"]{background:var(--t);color:#2E1712}
-.sp[data-state="sugg"]{background:var(--s);border-style:dashed;border-color:var(--d);color:#6B5852;--rib:transparent}
-.sp[data-state="sugg"] .sp-ph{border-color:var(--d)}
-.sp[data-state="sugg"] .sp-ph img{filter:saturate(.35);opacity:.6}
+.sp[data-state="work"]{background-color:var(--t);color:#2E1712;text-shadow:none;background-image:linear-gradient(90deg,rgba(46,23,18,.16) 0,rgba(46,23,18,.04) 11%,rgba(255,255,255,.12) 27%,rgba(255,255,255,.26) 40%,rgba(255,255,255,.06) 58%,rgba(46,23,18,.04) 82%,rgba(46,23,18,.17) 100%),linear-gradient(180deg,rgba(255,255,255,.2) 0,rgba(255,255,255,0) 9px,rgba(46,23,18,0) calc(100% - 16px),rgba(46,23,18,.08) 100%);box-shadow:inset 0 0 0 .5px rgba(46,23,18,.22),0 1px 2px rgba(46,23,18,.4),3px 0 5px -3px rgba(46,23,18,.3)}
+.sp[data-state="work"]::after{opacity:.6}
+.sp[data-state="sugg"]{background-color:var(--s);background-image:linear-gradient(90deg,rgba(46,23,18,.05) 0,rgba(46,23,18,0) 14%,rgba(255,255,255,.5) 40%,rgba(255,255,255,0) 62%,rgba(46,23,18,.05) 100%);box-shadow:none;border:1px dashed var(--d);border-bottom-width:0;color:#6B5852;text-shadow:none}
+.sp[data-state="sugg"]::before,.sp[data-state="sugg"]::after{display:none}
 @media (prefers-reduced-motion: reduce){.sv{transition:none!important}}
 .sp[data-spine="hanne"]{--c:hsl(14,52%,48%);--t:hsl(14,42%,80%);--s:hsl(14,36%,95%);--d:hsl(14,23%,58%)}
 .sp[data-spine="theo"]{--c:hsl(205,28%,42%);--t:hsl(205,22%,80%);--s:hsl(205,20%,95%);--d:hsl(205,13%,58%)}
@@ -289,6 +288,8 @@ section{display:flex}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+// ONE SCREEN, TWO FILES: P5-buecher.dc.html (opens in the list) and P5-buecher-regal.dc.html (opens in the shelf) must stay identical
+// apart from the single line marked DEFAULT VIEW in the shelf block below. Edit one file, copy it over the other, then set that line again.
 class Component extends DCLogic {
   
   componentDidMount() {
@@ -551,8 +552,10 @@ class Component extends DCLogic {
               else { key = 'fam'; label = 'Familie'; rank = 99; }
             } else { key = bk.getAttribute('data-from').slice(0, 4); label = key; rank = +key; }
             if (!by[key]) { by[key] = { label: label, rank: rank, items: [], w: 0 }; groups.push(by[key]); }
-            var p = Math.min(1, Math.max(0, (+bk.getAttribute('data-pages') - 28) / 44)), w = 44 + 14 * p;
-            by[key].w += w + (by[key].items.length ? GAP : 0); by[key].items.push({ bk: bk, p: p, w: w });
+            // thickness follows the page count the book has now, height follows its format (Hoch, Quadrat, Quer) and size (Groß, Klein)
+            var p = Math.min(1, Math.max(0, (pagesFor(bk, +bk.getAttribute('data-ppp')) - 24) / 56)), w = Math.round(30 + 26 * p);
+            var hf = [1, 0.8, 0.7][+bk.getAttribute('data-form')] || 1; if (bk.getAttribute('data-size') === '1') hf *= 0.84;
+            by[key].w += w + (by[key].items.length ? GAP : 0); by[key].items.push({ bk: bk, w: w, hf: hf });
           });
         if (mode === 'who') groups.sort(function (a, b) { return a.rank - b.rank; });
         // fill the boards from the left: a group goes next to the one before while it fits, else onto the next board
@@ -575,27 +578,29 @@ class Component extends DCLogic {
           b.segs.forEach(function (seg) {
             var grp = el('div', 'sv-grp'), name = el('div', 'sv-name'); grp.setAttribute('role', 'group'); grp.setAttribute('aria-label', seg.label); name.textContent = seg.label; name.setAttribute('aria-hidden', 'true');
             seg.items.forEach(function (it) {
-              var bk = it.bk, st = bk.getAttribute('data-state'), title = q(bk, '.bk-title span').textContent, cov = q(bk, '.bk-cov img');
-              var s = el('button', 'sp'), t = el('span', 'sp-t'), tx = el('span'), ph = el('span', 'sp-ph'), im = el('img');
+              var bk = it.bk, st = bk.getAttribute('data-state'), title = q(bk, '.bk-title span').textContent;
+              var s = el('button', 'sp'), t = el('span', 'sp-t'), tx = el('span');
               s.type = 'button'; s.setAttribute('data-spine', bk.getAttribute('data-book')); s.setAttribute('data-state', st); s.setAttribute('aria-label', title + (WORD[st] || ''));
-              s.style.setProperty('--p', it.p.toFixed(3));
+              s.style.setProperty('--w', it.w + 'px'); s.style.setProperty('--hf', it.hf.toFixed(3));
               tx.textContent = title; t.appendChild(tx); s.appendChild(t);
-              if (cov) { im.src = cov.getAttribute('src'); im.alt = ''; im.style.objectPosition = cov.style.objectPosition; ph.appendChild(im); s.appendChild(ph); }
-              grp.appendChild(s);
+              grp.appendChild(s); it.sp = s; it.t = t; it.tx = tx;
             });
             row.appendChild(grp); plank.appendChild(name); seg.grp = grp; seg.name = name;
           });
           if (i === vaseAt) { var v = el('img', 'sv-vase'); v.src = sv.getAttribute('data-vase'); v.alt = ''; row.appendChild(v); }
           board.appendChild(row); board.appendChild(plank); list.appendChild(board);
           // each name sits under the middle of its group, kept clear of the two brackets
+          // a title that is longer than its spine is set a little smaller, down to 11px; below that it is cut as before
+          b.segs.forEach(function (seg) { seg.items.forEach(function (it) { var fs = 13; while (it.tx.offsetHeight > it.t.clientHeight && fs > 11) { fs -= 0.5; it.sp.style.fontSize = fs + 'px'; } }); });
           b.segs.forEach(function (seg) { var w = seg.name.offsetWidth, x = 24 + seg.grp.offsetLeft + seg.grp.offsetWidth / 2 - w / 2; seg.name.style.left = Math.round(Math.min(340 - w, Math.max(52, x))) + 'px'; });
         });
         list.scrollTop = 0;
       };
       var shut = function () { root.classList.remove('shelf-on'); sv.setAttribute('aria-hidden', 'true'); };
+      var show1 = function () { build(); root.classList.add('shelf-on'); sv.setAttribute('aria-hidden', 'false'); };
       document.addEventListener('click', function (e) {
         var t = e.target, x;
-        if (t.closest('[data-shelf]')) { menuClose(); build(); root.classList.add('shelf-on'); sv.setAttribute('aria-hidden', 'false'); return; }
+        if (t.closest('[data-shelf]')) { menuClose(); show1(); return; }
         if (t.closest('[data-shelf-close]')) { shut(); return; }
         if ((x = t.closest('[data-sv-group]'))) {
           sv.setAttribute('data-group', x.getAttribute('data-sv-group'));
@@ -609,6 +614,12 @@ class Component extends DCLogic {
         }
       }, true);
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && root.classList.contains('shelf-on')) shut(); });
+      // the screen opens in the list or in the shelf; a link that names a book (#hanne) always opens that book in the list
+      var SHELF_FIRST = false; // DEFAULT VIEW: false in P5-buecher.dc.html, true in P5-buecher-regal.dc.html. The only line that differs between the two files.
+      if (SHELF_FIRST && !/^#[a-z0-9]+$/.test(location.hash)) show1();
+      window.addEventListener('hashchange', function () { if (/^#[a-z0-9]+$/.test(location.hash) && q(document, '.bk[data-book="' + location.hash.slice(1) + '"]')) shut(); });
+      // names and titles are measured, so the shelf is set once more when the typefaces have arrived
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (root.classList.contains('shelf-on')) build(); });
     })();
     /* SHELF END */
     secs(); cart();
