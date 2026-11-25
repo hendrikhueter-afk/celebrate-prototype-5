@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.ph{display:block;width:100%;height:100%;object-fit:cover}
+@keyframes wave{0%,100%{transform:scaleY(0.35)}50%{transform:scaleY(1)}}
+.wv{display:block;width:4px;border-radius:2px;background:#4E2018;transform-origin:center;animation:wave 0.9s ease-in-out infinite}
+@keyframes halo{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.halo{animation:halo 1.6s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.wv,.halo{animation:none}}
+@keyframes pin{from{transform:scale(0.96)}to{transform:none}}.pl{transition:background 140ms ease,color 140ms ease}
+/* B3a and B3b follow the designer's boards NBV-01 and NBV-02A (pills, two steps). Added here: the pressed state in CSS, faces side by side, and the face crops of the Familie boards */
+.pl{background:#F2F1F0;color:#2E1712}
+.pl[aria-pressed="true"]{background:#4E2018;color:#FFFFFF}
+.av{display:block;width:36px;height:36px;border-radius:18px;overflow:hidden;flex-shrink:0;position:relative;background:#E2D9D6}
+.av2{display:flex;gap:3px;flex-shrink:0}
+.fc{position:absolute;height:auto;max-width:none;display:block}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden;"><div style="position: absolute; left: 0; right: 0; top: 44px; height: 44px; padding: 0 14px; display: grid; grid-template-columns: 44px 1fr 56px; gap: 8px; align-items: center; z-index: 4"><a href="P5-BK-neu-arten.dc.html" aria-label="Zurück" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 24px; height: 24px;"><path d="M15 5l-7 7 7 7"></path></svg></a><div style="text-align: center; font-size: 15px; font-weight: 700; color: #2E1712; white-space: nowrap">Neues Buch</div><div style="justify-self: end; font-size: 14px; color: #8C746A; padding-right: 6px">2/2</div></div><div class="scroll" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; overflow-y: auto; padding: 92px 20px 130px; box-sizing: border-box"><div data-chips="" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 14px"></div><h1 style="margin: 0 8px; font-size: 28px; line-height: 34px; font-weight: 700; color: #2E1712; text-align: center; margin-bottom: 22px">Welcher Zeitraum?</h1><div data-opts="" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px"></div><div style="margin: 24px 0 0; border-radius: 22px; background: #F2F1F0; padding: 14px"><div data-grid="" style="display: grid; gap: 4px; height: 200px; border-radius: 14px; overflow: hidden"></div><div style="padding: 14px 4px 2px; text-align: center"><div data-range="" style="font-size: 18px; line-height: 24px; font-weight: 700; color: #2E1712"></div><div data-count="" style="font-size: 14px; line-height: 20px; color: #8C746A; margin-top: 2px"></div></div></div></div><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 20px 34px; background: linear-gradient(to top, #FFFFFF 75%, rgba(255,255,255,0)); z-index: 3"><a href="P5-BK-edit.dc.html" style="height: 54px; border-radius: 27px; background: #4E2018; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; transition: opacity 160ms ease">Buch erstellen</a></div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+// B3b, DRAFT (24 Nov 2026), rebuilt on the designer's board NBV-02A "Zeitraum B · Pills mit Vorschau": the subjects as chips, the time spans as pills, and a preview
+// of the photos with the span and the count. What is new: the pills depend on what was picked in step 1 (from user interviews):
+//   one child alone        = the years of its life, birthday to birthday (the designer's Theo data, unchanged apart from "bis" in place of a dash)
+//   one Sammlung alone     = the whole Sammlung
+//   anything with Oma & Opa = the last 12 months first (a gift), then calendar years
+//   the family, the children together, any other mix = calendar years
+// The app does NOT know the grandparents' birthdays, so there is no "birthday to birthday" pill for them (Henrike, 24 Nov); that span goes through "Eigener Zeitraum"
+// until a birthday is entered in the Familie tab. Counts and Hanne's month are mock data. "Eigener Zeitraum" leads to the static mock P5-BK-neu-eigen.dc.html.
+// Changed against NBV-02A: no "+509" layer over the third photo (a layer must never sit on a face; the count stands below), and the button says "Buch erstellen".
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__nb2Armed) return; window.__nb2Armed = true;
+    var H = null; try { if (window.parent && window.parent !== window && window.parent.document) H = window.parent; } catch (x) { H = null; }
+    var navT = ''; try { navT = (performance.getEntriesByType('navigation')[0] || {}).type || ''; } catch (x) {}
+    if (!H && (navT === 'reload' || !/\.dc\.html/.test(document.referrer || ''))) { try { sessionStorage.removeItem('p5opt'); } catch (x) {} }
+    var optGet = function () { try { if (H) return H.__p5opt || (H.__p5opt = {}); return JSON.parse(sessionStorage.getItem('p5opt')) || {}; } catch (x) { return {}; } };
+    var optSet = function (k, v) { var o = optGet(); o[k] = v; try { if (!H) sessionStorage.setItem('p5opt', JSON.stringify(o)); sessionStorage.setItem('p5optping', String(Date.now())); } catch (x) {} };
+    var AV = {"hanne": "<span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/62c95a789594ee7ca512fe8877eed8e0.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 45%\"></span>", "theo": "<span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/d37fb94d2ad343d7cc02a1e5fac8cf80.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 30%\"></span>", "kinder": "<span class=\"av2\"><span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/62c95a789594ee7ca512fe8877eed8e0.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 45%\"></span><span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/d37fb94d2ad343d7cc02a1e5fac8cf80.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 30%\"></span></span>", "familie": "<span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/6b59577f644a855e466f4318c596cb2a.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 45%\"></span>", "oma": "<span class=\"av2\"><span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/98fccb1d8e37b56ffd1e5d0234735f67.jpg\" alt=\"\" class=\"fc\" style=\"width: 350%; left: -182.2%; top: -30.8%\"></span><span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/e221fbd52df325fab75237a15dcebc51.jpg\" alt=\"\" class=\"fc\" style=\"width: 539.4%; left: -266.1%; top: -81.1%\"></span></span>", "daenemark": "<span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 45%\"></span>", "see": "<span class=\"av\" style=\"width: 30px; height: 30px; border-radius: 15px\"><img src=\"img/0fc9e8ffe12c81e50839d241ed8f85b2.jpg\" alt=\"\" class=\"ph\" style=\"object-position: 50% 45%\"></span>"};
+    var NAME = { hanne: 'Hanne', theo: 'Theo', kinder: 'Kinder', familie: 'Unsere Familie', oma: 'Oma & Opa', daenemark: 'Dänemark 2026', see: 'Sommer am See 2025' };
+    var T = function (a, b, c) { return [[a, ''], [b, ''], [c, '']]; };
+    var HAN = '62c95a789594ee7ca512fe8877eed8e0.jpg', BRK = '7ce9f4588f359d964f8474b78f157c0d.jpg', BEA = '0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg', ZOO = '21667a67aaaf063cbed76be758bf836a.jpg', LEA = '6b59577f644a855e466f4318c596cb2a.jpg', ROS = '98fccb1d8e37b56ffd1e5d0234735f67.jpg', TAB = 'e221fbd52df325fab75237a15dcebc51.jpg', THE = 'd37fb94d2ad343d7cc02a1e5fac8cf80.jpg';
+    var FAM = [[LEA, '40% 50%'], [BRK, '35% 50%'], [BEA, '25% 50%']], KID = [[BRK, '35% 50%'], [THE, '50% 30%'], [HAN, '50% 35%']], OMA = [[ROS, '60% 50%'], [TAB, '100% 50%'], [BRK, '35% 50%']], OMA2 = [[TAB, '80% 50%'], [ROS, '60% 50%'], [LEA, '40% 50%']];
+    var ONE = {
+      hanne: [['Erstes Jahr', 'seit Juni 2026', 318, [[HAN, '50% 30%'], [BRK, '30% 50%'], [BEA, '25% 50%']]]],
+      theo: [['Erstes Jahr', 'April 2022 bis März 2023', 512, T(BRK, '00838ccc11433c29076776c6c1f62fe3', '137f2edecf6be355d231b8a970f231ab.jpg')], ['Zweites Jahr', 'April 2023 bis März 2024', 438, T('1720346abfe6c251e5d940d8deed6dd9.jpg', '58ab50ee9e214f732520a5abe639a27f', '7d3a724d514cbce289825c4830aeb100.jpg')], ['Drittes Jahr', 'April 2024 bis März 2025', 396, T('92dbcd1c0120f122939200438c76589b.jpg', 'f5586353e4b9f935501d156250791fa4', ZOO)], ['Viertes Jahr', 'April 2025 bis März 2026', 354, T('91737925598d2ac191539b74ef64bf0c', 'd9705ba9c737f718dd2cf09299d1353e', 'cf2ba397df0e7e2f1342a66fb9b92101')], ['Dieses Jahr', 'seit April 2026', 187, T(THE, '137f2edecf6be355d231b8a970f231ab.jpg', '58ab50ee9e214f732520a5abe639a27f')]],
+      daenemark: [['Ganze Reise', '18. bis 24. Juli 2026', 143, [['2595bdc30422cf4cc28c8154d791be57.jpg', ''], [BEA, '25% 50%'], ['16bf70dd536ad285ca8ede13234084a8.jpg', '50% 25%']]]],
+      see: [['Ganzer Sommer', 'Juni bis August 2025', 88, [['0fc9e8ffe12c81e50839d241ed8f85b2.jpg', '50% 62%']]]]
+    };
+    // which spans are offered for the picks of step 1
+    var spans = function (keys, own) {
+      if (keys.length === 1 && !own && ONE[keys[0]]) return ONE[keys[0]];
+      var gp = keys.indexOf('oma') >= 0, kidsOnly = keys.length > 0 && keys.every(function (k) { return k === 'hanne' || k === 'theo' || k === 'kinder'; });
+      var n = gp ? (keys.length > 1 ? 412 : 268) : kidsOnly ? 642 : 904, ph = gp ? OMA : kidsOnly ? KID : FAM, ph2 = gp ? OMA2 : ph;
+      var years = [['2026', 'seit Januar 2026', n, ph], ['2025', 'Januar bis Dezember 2025', Math.round(n * 0.93), ph2], ['2024', 'Januar bis Dezember 2024', Math.round(n * 0.81), ph]];
+      return gp ? [['Letzte 12 Monate', 'Dez. 2025 bis Nov. 2026', Math.round(n * 1.06), ph]].concat(years.slice(0, 2)) : years;
+    };
+    var sig = null, list = [], sel = 0;
+    var el = function (s) { return document.querySelector(s); };
+    var shot = function (p, st) { return '<span style="display: block; overflow: hidden; ' + st + '"><img src="img/' + p[0] + '" alt="" class="ph"' + (p[1] ? ' style="object-position: ' + p[1] + '"' : '') + '></span>'; };
+    var preview = function () {
+      var o = list[sel], g = el('[data-grid]');
+      if (o[3].length >= 3) { g.style.gridTemplateColumns = '2fr 1fr'; g.style.gridTemplateRows = '1fr 1fr'; g.innerHTML = shot(o[3][0], 'grid-row: 1 / 3') + shot(o[3][1], '') + shot(o[3][2], ''); }
+      else { g.style.gridTemplateColumns = '1fr'; g.style.gridTemplateRows = '1fr'; g.innerHTML = shot(o[3][0], ''); }
+      el('[data-range]').textContent = o[1]; el('[data-count]').textContent = o[2] + ' Fotos';
+      Array.prototype.slice.call(document.querySelectorAll('[data-o]')).forEach(function (b) { b.setAttribute('aria-pressed', +b.getAttribute('data-o') === sel ? 'true' : 'false'); });
+    };
+    var CHIP = 'display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px 0 3px; border-radius: 18px; background: #F2F1F0; font-size: 14px; font-weight: 500; color: #2E1712; white-space: nowrap';
+    var paint = function () {
+      var st = optGet(), keys = (Array.isArray(st.nbSubj) ? st.nbSubj : []).filter(function (k) { return NAME[k]; }), own = (st.nbOwn || '').trim();
+      if (!keys.length && !own) keys = ['oma', 'kinder'];   // seen on its own on the canvas, the board shows the case from the interviews
+      var now = keys.join(',') + '|' + own; if (now === sig) return; sig = now; sel = 0; list = spans(keys, own);
+      var chips = el('[data-chips]'); chips.innerHTML = keys.map(function (k) { return '<a href="P5-BK-neu-arten.dc.html" style="' + CHIP + '">' + AV[k] + '<span></span></a>'; }).join('') + (own ? '<a href="P5-BK-neu-arten.dc.html" style="' + CHIP + '; padding-left: 14px"><span></span></a>' : '');
+      Array.prototype.slice.call(chips.children).forEach(function (c, i) { c.lastChild.textContent = i < keys.length ? NAME[keys[i]] : own; });
+      el('[data-opts]').innerHTML = list.map(function (o, i) { return '<a href="#" class="pl" data-o="' + i + '" aria-pressed="false" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 20px; font-size: 15px; font-weight: 500; white-space: nowrap">' + o[0] + '</a>'; }).join('') +
+        '<a href="P5-BK-neu-eigen.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 20px; font-size: 15px; font-weight: 500; white-space: nowrap; gap: 7px; background: #FFFFFF; box-shadow: inset 0 0 0 1.5px #E2D9D6; color: #2E1712"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px"><rect x="3.5" y="5" width="17" height="15" rx="3"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>Eigener Zeitraum</a>';
+      preview();
+    };
+    document.addEventListener('click', function (e) {
+      var t = e.target, x; if (!t || !t.closest) return;
+      if ((x = t.closest('[data-o]'))) { e.preventDefault(); sel = +x.getAttribute('data-o'); preview(); return; }
+      if (t.closest('a[href="#"]')) e.preventDefault();
+    }, true);
+    paint();
+    try { new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) paint(); }); }).observe(document.documentElement); } catch (x) {}
+    window.addEventListener('storage', function (e) { if (e && e.key === 'p5optping') setTimeout(paint, 40); });
+    window.addEventListener('focus', paint); window.addEventListener('pageshow', paint); document.addEventListener('visibilitychange', paint); document.addEventListener('pointerover', paint, true);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

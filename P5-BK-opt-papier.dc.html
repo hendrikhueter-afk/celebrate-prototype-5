@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2E1712;flex-shrink:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
+.btn:hover{color:#ffffff}
+/* one card per paper: a picture, the name, what it is like in Kartenmacherei's own words. A tap chooses it */
+.card{position:relative;display:flex;flex-direction:column;width:100%;padding:0;margin:0;border:1.5px solid #E2D9D6;border-radius:16px;overflow:hidden;background:#FFFFFF;color:#2E1712;font-family:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.card[aria-pressed="true"]{border-color:#4E2018;box-shadow:inset 0 0 0 1px #4E2018}
+.card .pic{position:relative;display:block;height:104px;background:#E9DCCB;overflow:hidden}
+/* the matte paper shows Kartenmacherei's own product photo, whole and unfiltered */
+.card .pic.photo{height:auto;aspect-ratio:392 / 250;background:#D9C3AD}
+.card .pic.photo img{display:block;width:100%;height:100%;object-fit:cover;filter:none}
+.card .bd{display:flex;flex-direction:column;gap:4px;padding:12px 14px 14px}
+.card .nm{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 8px;font-size:16px;line-height:22px;font-weight:700}
+.card .tag{font-size:13px;line-height:18px;font-weight:500;color:#8A6A2B}
+.card .ds{font-size:14px;line-height:20px;color:#2E1712}
+.card .ck{position:absolute;right:10px;top:10px;width:24px;height:24px;border-radius:50%;background:#4E2018;color:#FFFFFF;display:none;align-items:center;justify-content:center;box-shadow:0 0 0 2px #FFFFFF}
+.card[aria-pressed="true"] .ck{display:flex}
+/* drawn stand-ins for a paper close-up: two sheets on a warm ground, the satin one catches the light */
+.sheet{position:absolute;display:block;background:#FFFFFF;border-radius:2px;box-shadow:0 1px 2px rgba(46,23,18,.10),0 6px 14px rgba(46,23,18,.14)}
+.sheet.a{left:34px;top:26px;width:210px;height:130px;transform:rotate(-7deg);background:#F6F2EC}
+.sheet.b{left:120px;top:18px;width:230px;height:140px;transform:rotate(5deg)}
+.matt .sheet.b{background:linear-gradient(180deg,#FFFFFF,#FAF8F5)}
+.satin .sheet.b{background:linear-gradient(118deg,#FFFFFF 0,#FFFFFF 38%,#EDEFF2 47%,#FFFFFF 56%,#F4F5F7 72%,#FFFFFF 100%)}
+.satin .sheet.a{background:linear-gradient(118deg,#F6F2EC 0,#F6F2EC 30%,#E6E4E2 40%,#F6F2EC 52%)}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+<div style="margin-top: 44px; padding: 0 14px; height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 8px; flex-shrink: 0">
+  <a href="P5-BK-opt.dc.html" class="ib" aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 style="margin: 0; text-align: center; font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Papiersorte</h1>
+  <span aria-hidden="true"></span>
+</div>
+
+<div class="scroll" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 4px 16px 128px; display: flex; flex-direction: column; gap: 14px">
+  <p style="margin: 0; font-size: 16px; line-height: 22px; color: #2E1712; flex-shrink: 0">Welches Papier soll in deinem Buch sein?</p>
+
+  <div role="group" aria-label="Papiersorte" style="display: flex; flex-direction: column; gap: 14px; flex-shrink: 0">
+    <button type="button" class="card" aria-pressed="true" data-pap="matt">
+      <span class="pic photo" aria-hidden="true"><img src="img/053057b94ffaddf20e040a6c5760ef6b.png" alt=""></span>
+      <span class="bd"><span class="nm">Mattes Premiumpapier (weiß)<span class="tag">Veredelbar</span></span><span class="ds">Unser mattes Premiumpapier in Weiß ist ein hochwertiges Grafikpapier für Buch- und Fotodruck. Samtige Haptik und glatte Oberfläche sorgen für ein modernes, mattes Finish. Grammatur: 150 g/m².</span></span>
+      <span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span>
+    </button>
+    <button type="button" class="card" aria-pressed="false" data-pap="satin">
+      <span class="pic satin" aria-hidden="true"><span class="sheet a"></span><span class="sheet b"></span></span>
+      <span class="bd"><span class="nm">Satiniertes Premiumpapier (weiß)<span class="tag">Veredelbar</span></span><span class="ds">Seidig und glänzend, für einen klassischen, brillanten Fotobuch-Look. Grammatur: 170 g/m².</span></span>
+      <span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span>
+    </button>
+  </div>
+  <p style="margin: 0; font-size: 13px; line-height: 18px; color: #6F5A52; flex-shrink: 0">Beispielbilder</p>
+</div>
+
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 34px; background: linear-gradient(to bottom, rgba(255,255,255,0), #FFFFFF 26%)">
+  <a href="P5-BK-opt.dc.html" class="btn" role="button" style="width: 100%">Auswählen</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+// B2a-P, Papiersorte: the two papers of a Kartenmacherei Hardcover photo book. The texts are Kartenmacherei's own (configurator and fotobuecher.html, read 24 Nov 2026);
+// the matte paper shows Kartenmacherei's product photo (from Henrike, 24 Nov 2026), the satin paper a drawn stand-in until there is a photo. A tap chooses a paper; the choice is kept for the visit and shown on the overview (P5-BK-opt.dc.html).
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__papArmed) return; window.__papArmed = true;
+    var H = null; try { if (window.parent && window.parent !== window && window.parent.document) H = window.parent; } catch (x) { H = null; }
+    var navT = ''; try { navT = (performance.getEntriesByType('navigation')[0] || {}).type || ''; } catch (x) {}
+    if (!H && (navT === 'reload' || !/\.dc\.html/.test(document.referrer || ''))) { try { sessionStorage.removeItem('p5opt'); } catch (x) {} }
+    var optGet = function () { try { if (H) return H.__p5opt || (H.__p5opt = {}); return JSON.parse(sessionStorage.getItem('p5opt')) || {}; } catch (x) { return {}; } };
+    var optSet = function (k, v) { var o = optGet(); o[k] = v; try { if (!H) sessionStorage.setItem('p5opt', JSON.stringify(o)); sessionStorage.setItem('p5optping', String(Date.now())); } catch (x) {} };
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+    var paint = function () { var p = optGet().pap || 'matt'; cards.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-pap') === p ? 'true' : 'false'); }); };
+    document.addEventListener('click', function (e) { var c = e.target && e.target.closest && e.target.closest('.card'); if (!c) return; optSet('pap', c.getAttribute('data-pap')); paint(); }, true);
+    paint();
+    try { new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) paint(); }); }).observe(document.documentElement); } catch (x) {}
+    window.addEventListener('pageshow', paint);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

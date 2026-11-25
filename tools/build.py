@@ -118,6 +118,8 @@ def main():
         # runtime data may hold bare image ids filled into src="/_blob/{{x}}" templates:
         # point the template at img/ and give every bare id its file name
         s = s.replace('"/_blob/{{', '"img/{{').replace("'/_blob/{{", "'img/{{")
+        # src built in script by string concat ('/_blob/' + id): same treatment
+        s = s.replace("/_blob/' +", "img/' +").replace('/_blob/" +', 'img/" +')
         s = BARE.sub(lambda m: img_name[m.group(1)] if m.group(1) in img_name else m.group(0), s)
         if "<title>" in s:
             s = re.sub(r"<title>.*?</title>", lambda m: head_block(CFG["min_height"].get(b, CFG["min_height_default"])), s, count=1, flags=re.S)

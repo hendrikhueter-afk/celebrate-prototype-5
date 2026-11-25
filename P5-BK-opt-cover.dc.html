@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,800&amp;family=Cormorant+Garamond:ital,wght@0,700;1,700&amp;family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2E1712;flex-shrink:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
+.btn:hover{color:#ffffff}
+/* one card per cover design: the cover with the family's own photo and title, and the name of the design. A tap chooses it */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cv{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:0 0 12px;margin:0;border:1.5px solid #E2D9D6;border-radius:16px;overflow:hidden;background:#FFFFFF;color:#2E1712;font-family:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.cv[aria-pressed="true"]{border-color:#4E2018;box-shadow:inset 0 0 0 1px #4E2018}
+.cv .st{display:flex;align-items:center;justify-content:center;height:206px;background:#F7F6F5}
+.cv .nm{padding:0 12px;font-size:15px;line-height:20px;font-weight:700}
+.cv .ck{position:absolute;right:8px;top:8px;width:24px;height:24px;border-radius:50%;background:#4E2018;color:#FFFFFF;display:none;align-items:center;justify-content:center;box-shadow:0 0 0 2px #FFFFFF}
+.cv[aria-pressed="true"] .ck{display:flex}
+/* a cover is drawn at 96 x 128 and enlarged, like the covers on the books screen */
+.bk{position:relative;display:block;width:96px;height:128px;border-radius:1px 2px 2px 1px;overflow:hidden;box-shadow:1px 1px 1px rgba(40,28,28,0.10),3px 5px 10px rgba(40,28,28,0.26)}
+.bk .t{position:absolute;display:flex;flex-direction:column;align-items:center;text-align:center;white-space:nowrap}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+<div style="margin-top: 44px; padding: 0 14px; height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 8px; flex-shrink: 0">
+  <a href="P5-BK-opt.dc.html" class="ib" aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 style="margin: 0; text-align: center; font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Cover Design</h1>
+  <span aria-hidden="true"></span>
+</div>
+
+<div class="scroll" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 4px 16px 128px; display: flex; flex-direction: column; gap: 14px">
+  <p style="margin: 0; font-size: 16px; line-height: 22px; color: #2E1712; flex-shrink: 0">Wie soll dein Cover aussehen?</p>
+  <div class="grid" role="group" aria-label="Cover Design" style="flex-shrink: 0">
+    <button type="button" class="cv" aria-pressed="true" data-cov="memories" data-name="Memories"><span class="st" aria-hidden="true"><span style="display: block; zoom: 1.375"><span class="bk" style="background: #FFFFFF"><span style="position: absolute; overflow: hidden; left: 0; right: 0; top: 0; bottom: 30px"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%"></span><span class="t" style="left: 10px; right: 6px; bottom: 7px; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1712"><span style="font-size: 9px; font-weight: 800; letter-spacing: -0.1px; line-height: 11px">Das erste Jahr</span><span style="font-size: 6px; font-weight: 500; letter-spacing: 1px">von Hanne</span></span><span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04) 60%, rgba(255,255,255,0.25) 75%, rgba(0,0,0,0) 100%); pointer-events: none"></span><span aria-hidden="true" style="position: absolute; inset: 0; z-index: 3; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.14); border-radius: inherit; pointer-events: none"></span></span></span></span><span class="nm">Memories</span><span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></button>
+    <button type="button" class="cv" aria-pressed="false" data-cov="takemeback" data-name="Take me back"><span class="st" aria-hidden="true"><span style="display: block; zoom: 1.375"><span class="bk" style="background: #FFFFFF"><span style="position: absolute; overflow: hidden; left: 14px; right: 10px; top: 12px; height: 78px"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%"></span><span class="t" style="left: 14px; right: 10px; top: 97px; font-family: 'Cormorant Garamond', Georgia, serif; color: #2E1712"><span style="font-size: 11px; font-weight: 700; font-style: italic; line-height: 12px">Das erste Jahr</span><span style="font-family: 'DM Sans', system-ui, sans-serif; font-size: 5.5px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; margin-top: 2px">von Hanne</span></span><span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04) 60%, rgba(255,255,255,0.25) 75%, rgba(0,0,0,0) 100%); pointer-events: none"></span><span aria-hidden="true" style="position: absolute; inset: 0; z-index: 3; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.14); border-radius: inherit; pointer-events: none"></span></span></span></span><span class="nm">Take me back</span><span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></button>
+    <button type="button" class="cv" aria-pressed="false" data-cov="bunt" data-name="Bunt unterwegs"><span class="st" aria-hidden="true"><span style="display: block; zoom: 1.375"><span class="bk" style="background: #D9A58C"><span style="position: absolute; overflow: hidden; left: 22px; right: 18px; top: 14px; height: 74px; border-radius: 30px 30px 2px 2px"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%"></span><span class="t" style="left: 12px; right: 8px; top: 95px; font-family: 'DM Sans', system-ui, sans-serif; color: #FFFFFF"><span style="font-size: 9.5px; font-weight: 800; line-height: 11px">Das erste Jahr</span><span style="font-size: 6px; font-weight: 500; letter-spacing: 0.8px">von Hanne</span></span><span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04) 60%, rgba(255,255,255,0.25) 75%, rgba(0,0,0,0) 100%); pointer-events: none"></span><span aria-hidden="true" style="position: absolute; inset: 0; z-index: 3; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.14); border-radius: inherit; pointer-events: none"></span></span></span></span><span class="nm">Bunt unterwegs</span><span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></button>
+    <button type="button" class="cv" aria-pressed="false" data-cov="momente" data-name="Momente unseres Lebens"><span class="st" aria-hidden="true"><span style="display: block; zoom: 1.375"><span class="bk" style="background: #F4EFE8"><span class="t" style="left: 12px; right: 8px; top: 11px; font-family: 'Cormorant Garamond', Georgia, serif; color: #2E1712"><span style="font-size: 12px; font-weight: 700; line-height: 12px">Das erste Jahr</span><span style="font-family: 'DM Sans', system-ui, sans-serif; font-size: 5.5px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; margin-top: 2px">von Hanne</span></span><span style="position: absolute; overflow: hidden; left: 0; right: 0; top: 42px; bottom: 0"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%"></span><span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04) 60%, rgba(255,255,255,0.25) 75%, rgba(0,0,0,0) 100%); pointer-events: none"></span><span aria-hidden="true" style="position: absolute; inset: 0; z-index: 3; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.14); border-radius: inherit; pointer-events: none"></span></span></span></span><span class="nm">Momente unseres Lebens</span><span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></button>
+    <button type="button" class="cv" aria-pressed="false" data-cov="evergreen" data-name="Evergreen Season"><span class="st" aria-hidden="true"><span style="display: block; zoom: 1.375"><span class="bk" style="background: #2F4A3C"><span style="position: absolute; overflow: hidden; left: 25px; right: 21px; top: 22px; height: 50px"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%"></span><span class="t" style="left: 12px; right: 8px; top: 82px; font-family: 'Cormorant Garamond', Georgia, serif; color: #F4EFE8"><span style="font-size: 11.5px; font-weight: 700; line-height: 12px">Das erste Jahr</span><span style="font-family: 'DM Sans', system-ui, sans-serif; font-size: 5.5px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; margin-top: 3px">von Hanne</span></span><span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04) 60%, rgba(255,255,255,0.25) 75%, rgba(0,0,0,0) 100%); pointer-events: none"></span><span aria-hidden="true" style="position: absolute; inset: 0; z-index: 3; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.14); border-radius: inherit; pointer-events: none"></span></span></span></span><span class="nm">Evergreen Season</span><span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></button>
+    <button type="button" class="cv" aria-pressed="false" data-cov="unserezeit" data-name="Unsere Zeit"><span class="st" aria-hidden="true"><span style="display: block; zoom: 1.375"><span class="bk" style="background: #FFFFFF"><span style="position: absolute; overflow: hidden; left: 0; right: 0; top: 0; bottom: 0"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%"></span><span class="t" style="left: 16px; right: 12px; bottom: 9px; padding: 5px 4px 4px; background: #FFFFFF; font-family: 'DM Sans', system-ui, sans-serif; color: #2E1712; z-index: 2"><span style="font-size: 8px; font-weight: 800; line-height: 10px">Das erste Jahr</span><span style="font-size: 5.5px; font-weight: 500; letter-spacing: 0.8px">von Hanne</span></span><span aria-hidden="true" style="position: absolute; left: 0; top: 0; bottom: 0; width: 8px; z-index: 4; background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0.04) 60%, rgba(255,255,255,0.25) 75%, rgba(0,0,0,0) 100%); pointer-events: none"></span><span aria-hidden="true" style="position: absolute; inset: 0; z-index: 3; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.14); border-radius: inherit; pointer-events: none"></span></span></span></span><span class="nm">Unsere Zeit</span><span class="ck" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 12px; height: 12px; stroke-width: 3"><path d="M5 12.5l4.5 4.5L19 7"></path></svg></span></button>
+  </div>
+  <p style="margin: 0; font-size: 13px; line-height: 18px; color: #6F5A52; flex-shrink: 0">Foto und Titel kannst du danach im Buch ändern.</p>
+</div>
+
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 34px; background: linear-gradient(to bottom, rgba(255,255,255,0), #FFFFFF 26%)">
+  <a href="P5-BK-opt.dc.html" class="btn" role="button" style="width: 100%">Auswählen</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+// B2a-C, Cover Design: six Hardcover designs of Kartenmacherei by name (read from kartenmacherei.de on 24 Nov 2026). Only "Memories" is drawn as the app shows it elsewhere;
+// the five other covers are stand-in layouts, NOT the real designs. A tap chooses a design; the choice is kept for the visit and shown on the overview (P5-BK-opt.dc.html).
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__covArmed) return; window.__covArmed = true;
+    var H = null; try { if (window.parent && window.parent !== window && window.parent.document) H = window.parent; } catch (x) { H = null; }
+    var navT = ''; try { navT = (performance.getEntriesByType('navigation')[0] || {}).type || ''; } catch (x) {}
+    if (!H && (navT === 'reload' || !/\.dc\.html/.test(document.referrer || ''))) { try { sessionStorage.removeItem('p5opt'); } catch (x) {} }
+    var optGet = function () { try { if (H) return H.__p5opt || (H.__p5opt = {}); return JSON.parse(sessionStorage.getItem('p5opt')) || {}; } catch (x) { return {}; } };
+    var optSet = function (k, v) { var o = optGet(); o[k] = v; try { if (!H) sessionStorage.setItem('p5opt', JSON.stringify(o)); sessionStorage.setItem('p5optping', String(Date.now())); } catch (x) {} };
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.cv'));
+    var paint = function () { var p = optGet().cov || 'memories'; cards.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-cov') === p ? 'true' : 'false'); }); };
+    document.addEventListener('click', function (e) { var c = e.target && e.target.closest && e.target.closest('.cv'); if (!c) return; optSet('cov', c.getAttribute('data-cov')); optSet('covName', c.getAttribute('data-name')); paint(); }, true);
+    paint();
+    try { new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) paint(); }); }).observe(document.documentElement); } catch (x) {}
+    window.addEventListener('pageshow', paint);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

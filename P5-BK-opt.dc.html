@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2E1712;flex-shrink:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
+.btn:hover{color:#ffffff}
+/* the overview: one row per group, each shows what is chosen and opens its own screen with pictures and explanations */
+.rows{display:flex;flex-direction:column;border:1.5px solid #E2D9D6;border-radius:16px;overflow:hidden}
+.row{display:flex;align-items:center;gap:14px;min-height:72px;padding:12px 12px 12px 14px;box-sizing:border-box;background:#FFFFFF;color:#2E1712}
+.row+.row{border-top:1px solid #E8E5E3}
+.row .vis{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:#F7F6F5;flex-shrink:0;color:#2E1712}
+.row .tx{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.row .lb{font-size:13px;line-height:18px;color:#6F5A52}
+.row .vl{font-size:16px;line-height:22px;font-weight:700}
+.row .ex{font-size:13px;line-height:18px;color:#6F5A52}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+<div style="margin-top: 44px; padding: 0 14px; height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 8px; flex-shrink: 0">
+  <a href="P5-BK-edit.dc.html" class="ib" aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 style="margin: 0; text-align: center; font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Buch anpassen</h1>
+  <span aria-hidden="true"></span>
+</div>
+
+<div class="scroll" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 8px 16px 128px; display: flex; flex-direction: column; gap: 20px">
+
+  <!-- what is chosen right now -->
+  <div style="display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: 16px; background: #F7F6F5; flex-shrink: 0">
+    <span aria-hidden="true" style="position: relative; display: block; width: 60px; height: 80px; flex-shrink: 0; border-radius: 1px 3px 3px 1px; overflow: hidden; background: #ffffff; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.14), 2px 3px 8px rgba(40,28,28,0.22)"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="position: absolute; left: 0; top: 0; width: 100%; height: 60px; object-fit: cover; object-position: 50% 35%; display: block"></span>
+    <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+      <span style="font-size: 16px; line-height: 22px; font-weight: 700">Hannes erstes Jahr</span>
+      <span style="font-size: 14px; line-height: 20px; color: #6F5A52">48 Seiten</span>
+    </span>
+  </div>
+
+  <div class="rows" style="flex-shrink: 0">
+    <a href="P5-BK-opt-cover.dc.html" class="row" data-row="cov" aria-label="Cover Design"><span class="vis" aria-hidden="true"><span style="position: relative; display: block; width: 24px; height: 32px; border-radius: 1px 2px 2px 1px; overflow: hidden; background: #ffffff; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.18), 1px 1px 3px rgba(40,28,28,0.22)"><img src="img/62c95a789594ee7ca512fe8877eed8e0.jpg" alt="" style="position: absolute; left: 0; top: 0; width: 100%; height: 24px; object-fit: cover; object-position: 50% 35%; display: block"></span></span><span class="tx"><span class="lb">Cover Design</span><span class="vl" data-v="cov">Memories</span></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: #8C746A"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="#" class="row" data-row="ein" aria-label="Einband: Hardcover"><span class="vis" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 24px; height: 24px"><path d="M6 3.5h11a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H6z"></path><path d="M6 3.5v17"></path><path d="M9 3.5v17"></path></svg></span><span class="tx"><span class="lb">Einband</span><span class="vl">Hardcover</span></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: #8C746A"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="#" class="row" data-row="fmt" aria-label="Format: Großes Hochformat, 22 x 28,6 cm"><span class="vis" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 24px; height: 24px"><rect x="6.5" y="3.5" width="11" height="15" rx="1"></rect><path d="M4 21h4M4 21v-3M20 21h-4M20 21v-3" style="stroke-width: 1.4"></path></svg></span><span class="tx"><span class="lb">Format</span><span class="vl">Großes Hochformat</span><span class="ex">22 x 28,6 cm</span></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: #8C746A"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="#" class="row" data-row="ver" aria-label="Veredelung: Keine Veredelung"><span class="vis" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 24px; height: 24px"><path d="M12 3.5l1.9 4.6 4.6 1.9-4.6 1.9L12 16.5l-1.9-4.6L5.5 10l4.6-1.9z"></path><path d="M18.5 15.5l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z" style="stroke-width: 1.4"></path></svg></span><span class="tx"><span class="lb">Veredelung</span><span class="vl">Keine Veredelung</span></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: #8C746A"><path d="M9 5l7 7-7 7"></path></svg></a>
+    <a href="P5-BK-opt-papier.dc.html" class="row" data-row="pap" aria-label="Papiersorte"><span class="vis" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" style="width: 24px; height: 24px"><path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z"></path><path d="M14 3.5V8h4"></path></svg></span><span class="tx"><span class="lb">Papiersorte</span><span class="vl" data-v="pap">Mattes Premiumpapier (weiß)</span><span class="ex" data-x="pap">150 g/m²</span></span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; color: #8C746A"><path d="M9 5l7 7-7 7"></path></svg></a>
+  </div>
+</div>
+
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 34px; background: linear-gradient(to bottom, rgba(255,255,255,0), #FFFFFF 26%)">
+  <a href="P5-BK-edit.dc.html" class="btn" role="button" style="width: 100%">Übernehmen</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+// B2a, the overview of the physical book: five groups of a Kartenmacherei photo book (Cover Design, Einband, Format, Veredelung, Papiersorte). Each row shows what is chosen
+// and leads to its own screen, where every option is explained with a picture. Built so far: Cover Design (P5-BK-opt-cover.dc.html) and Papiersorte (P5-BK-opt-papier.dc.html); Einband, Format and Veredelung lead nowhere yet.
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__optArmed) return; window.__optArmed = true;
+    var H = null; try { if (window.parent && window.parent !== window && window.parent.document) H = window.parent; } catch (x) { H = null; }
+    var navT = ''; try { navT = (performance.getEntriesByType('navigation')[0] || {}).type || ''; } catch (x) {}
+    if (!H && (navT === 'reload' || !/\.dc\.html/.test(document.referrer || ''))) { try { sessionStorage.removeItem('p5opt'); } catch (x) {} }
+    var optGet = function () { try { if (H) return H.__p5opt || (H.__p5opt = {}); return JSON.parse(sessionStorage.getItem('p5opt')) || {}; } catch (x) { return {}; } };
+    var optSet = function (k, v) { var o = optGet(); o[k] = v; try { if (!H) sessionStorage.setItem('p5opt', JSON.stringify(o)); sessionStorage.setItem('p5optping', String(Date.now())); } catch (x) {} };
+    var PAP = { matt: ['Mattes Premiumpapier (weiß)', '150 g/m²'], satin: ['Satiniertes Premiumpapier (weiß)', '170 g/m²'] };
+    var paint = function () {
+      var p = PAP[optGet().pap] || PAP.matt, v = document.querySelector('[data-v="pap"]'), x = document.querySelector('[data-x="pap"]');
+      if (v) v.textContent = p[0]; if (x) x.textContent = p[1];
+      var cv = document.querySelector('[data-v="cov"]'); if (cv) cv.textContent = optGet().covName || 'Memories';
+    };
+    document.addEventListener('click', function (e) { var a = e.target && e.target.closest && e.target.closest('a[href="#"]'); if (a) e.preventDefault(); }, true);
+    // the choice is made on another screen: paint on load and whenever this screen is in front again
+    paint();
+    try { new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) paint(); }); }).observe(document.documentElement); } catch (x) {}
+    window.addEventListener('storage', function (e) { if (e && e.key === 'p5optping') setTimeout(paint, 40); });
+    window.addEventListener('focus', paint); window.addEventListener('pageshow', paint); document.addEventListener('visibilitychange', paint); document.addEventListener('pointerover', paint, true);
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
