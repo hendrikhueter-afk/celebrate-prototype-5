@@ -110,9 +110,9 @@ class Component extends DCLogic {
   constructor(props) { super(props); this.state = { t: (props.typed || '').replace(/[^0-9]/g, '').slice(0, 6) };
     this.__init = Object.assign({}, this.state); }
   __q() { const o = {}; try { String(window.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { const i = kv.indexOf('='); if (i > 0) o[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1)); }); } catch (e) {} return o; }
-  __date() { return '030423'; }
+  __date() { return '120226'; }
   renderVals() { const q = this.__q(), two = q.k === '2';
-    return Object.assign(this.__rv0(), { navKid: 'Theo', navBack: 'V3-BLA-J8-ck5i.dc.html' + (two ? '#k=2' : ''), navNext: 'V3-BLA-J10-p5t.dc.html' }); }
+    return Object.assign(this.__rv0(), { navKid: 'Hanne', navBack: 'V3-BLA-J8-ck5i.dc.html' + (two ? '#k=2' : ''), navNext: 'V3-BLA-J10-p5t.dc.html' }); }
   __rv0() {
     const t = this.state.t; const v = {};
     const parts = [t.slice(0,2), t.slice(2,4), t.slice(4,6)]; const ph = ['TT','MM','JJ'];

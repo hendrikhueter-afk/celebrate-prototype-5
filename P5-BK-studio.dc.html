@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Celebrate</title>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap">
+<style>
+img{filter:saturate(1.1) brightness(1.12) contrast(1.05)}
+body{margin:0;background:#FFFFFF}
+a{color:#2E1712;text-decoration:none}a:hover{color:#2E1712}
+.scroll{scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.ic{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;flex-shrink:0}
+.ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#2E1712;flex-shrink:0}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 20px;border-radius:999px;background:#4E2018;color:#ffffff;font-weight:700;font-size:16px;border:0;font-family:inherit;cursor:pointer;text-decoration:none;box-sizing:border-box}
+.btn:hover{color:#ffffff}
+/* the double page on top answers every control below at once: margins and gaps follow Seitenlayout, the number of photos follows Fotos pro Seite, the caption follows Textfelder */
+.pv{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 0 14px;border-radius:16px;background:#F7F6F5}
+.pv .sp{position:relative;display:flex;overflow:hidden;background:#FFFFFF;border-radius:2px;box-shadow:0 0 0 0.5px rgba(0,0,0,0.12),0 8px 22px rgba(40,28,28,0.18)}
+.pv .sp::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:14px;margin-left:-7px;background:linear-gradient(to right,rgba(46,23,18,0),rgba(46,23,18,0.10) 50%,rgba(46,23,18,0));pointer-events:none}
+.pv .pg{width:146px;height:190px;box-sizing:border-box;display:flex;flex-direction:column;padding:var(--m);gap:var(--g);transition:padding .22s ease,gap .22s ease}
+.pv .ph{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:var(--g);transition:gap .22s ease}
+.pv .s{position:relative;overflow:hidden;min-width:0;min-height:0;background:#EFEAE6}
+.pv .s img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .22s ease}
+/* Automatisch füllen off: the pages stay empty, nothing is laid out and there is no page count to show */
+.pv[data-auto="0"] .s img{opacity:0}
+.pv[data-auto="0"] .cap,.pv[data-auto="0"] .pc{visibility:hidden}
+.pv .cap{display:none;flex-shrink:0;height:10px;font-size:7px;line-height:10px;font-weight:500;color:#2E1712;white-space:nowrap}
+.pv[data-txt="1"] .cap{display:block}
+.pv[data-lay="0"]{--m:16px;--g:8px}
+.pv[data-lay="1"]{--m:9px;--g:4px}
+.pv[data-lay="2"]{--m:0px;--g:2px}
+.pv[data-lay="2"] .cap{padding:0 6px 4px}
+.pv[data-ppp="0"] .s:nth-child(n+2),.pv[data-ppp="1"] .pg:first-child .s:nth-child(n+2),.pv[data-ppp="1"] .s:nth-child(n+3),.pv[data-ppp="2"] .s:nth-child(n+3),.pv[data-ppp="3"] .s:nth-child(n+4){display:none}
+.pv[data-ppp="0"] .s:first-child,.pv[data-ppp="1"] .pg:first-child .s:first-child{grid-area:1 / 1 / 3 / 3}
+.pv[data-ppp="1"] .pg:last-child .s,.pv[data-ppp="2"] .s,.pv[data-ppp="3"] .s:first-child{grid-column:1 / 3}
+.pv .pc{font-size:14px;line-height:20px;color:#6F5A52}
+/* same row card as on B2a; here the rows carry their control instead of a chevron */
+.rows{display:flex;flex-direction:column;border:1.5px solid #E2D9D6;border-radius:16px;overflow:hidden}
+.row{display:flex;align-items:center;gap:14px;width:100%;min-height:72px;padding:12px 12px 12px 14px;margin:0;border:0;box-sizing:border-box;background:#FFFFFF;color:#2E1712;font-family:inherit;text-align:left;-webkit-tap-highlight-color:transparent}
+button.row{cursor:pointer}
+.row+.row{border-top:1px solid #E8E5E3}
+.row.col{flex-direction:column;align-items:stretch;gap:8px}
+.row .lb{font-size:13px;line-height:18px;color:#6F5A52}
+.row .vl{flex:1;font-size:16px;line-height:22px;font-weight:700}
+.rows.noauto [data-ao]{opacity:.38;pointer-events:none}
+.sw{position:relative;display:block;width:50px;height:30px;border-radius:15px;background:#A8958D;flex-shrink:0;transition:background-color .16s ease}
+.sw span{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(46,23,18,0.25);transition:transform .16s ease}
+[aria-checked="true"] .sw{background:#4E2018}
+[aria-checked="true"] .sw span{transform:translateX(20px)}
+.seg{display:flex;gap:2px;padding:3px;border-radius:12px;background:#F7F6F5}
+.seg .pl{flex:1 1 0;min-width:0;height:44px;padding:0;margin:0;border:0;border-radius:9px;background:none;color:#6F5A52;font-family:inherit;font-size:13px;line-height:18px;font-weight:400;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .14s ease,color .14s ease}
+.seg .pl[aria-pressed="true"]{background:#FFFFFF;color:#2E1712;font-weight:700;box-shadow:inset 0 0 0 1.5px #4E2018}
+</style>
+</helmet>
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FFFFFF; color: #2E1712; font-family: 'Rubik', system-ui, sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+<div style="margin-top: 44px; padding: 0 14px; height: 56px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 8px; flex-shrink: 0">
+  <a href="P5-BK-edit.dc.html" class="ib" aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 5l-7 7 7 7"></path></svg></a>
+  <h1 style="margin: 0; text-align: center; font-size: 17px; line-height: 22px; font-weight: 700; color: #2E1712">Design Studio</h1>
+  <span aria-hidden="true"></span>
+</div>
+
+<div class="scroll" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 8px 16px 128px; display: flex; flex-direction: column; gap: 20px">
+
+  <!-- one double page of the book, laid out the way the controls below say -->
+  <div class="pv" data-pv="" data-auto="1" data-lay="1" data-ppp="3" data-txt="1" style="flex-shrink: 0">
+    <div class="sp" role="img" aria-label="Beispiel einer Doppelseite">
+      <div class="pg">
+        <div class="ph">
+          <span class="s"><img src="img/501ac46f8866bccff28d1ec8b87ea6bc.jpg" alt="" style="object-position: 50% 40%"></span>
+          <span class="s"><img src="img/0a3ee17bd3a5fd5f7da8b952cd0575e9.jpg" alt="" style="object-position: 50% 40%"></span>
+          <span class="s"><img src="img/11da74e86f05345e64ced121c27f9df0.jpg" alt="" style="object-position: 50% 40%"></span>
+          <span class="s"><img src="img/16bf70dd536ad285ca8ede13234084a8.jpg" alt="" style="object-position: 50% 40%"></span>
+        </div>
+        <span class="cap">Juli</span>
+      </div>
+      <div class="pg">
+        <div class="ph">
+          <span class="s"><img src="img/f392861995d4f445c8073d75a3bf305a.jpg" alt="" style="object-position: 50% 40%"></span>
+          <span class="s"><img src="img/2595bdc30422cf4cc28c8154d791be57.jpg" alt="" style="object-position: 50% 40%"></span>
+          <span class="s"><img src="img/36ae6b410ba2c900c129785a2c3a1ee4.jpg" alt="" style="object-position: 50% 40%"></span>
+          <span class="s"><img src="img/4186db8e97f70671faffb3ea3fb9baec.jpg" alt="" style="object-position: 50% 50%"></span>
+        </div>
+        <span class="cap"></span>
+      </div>
+    </div>
+    <span class="pc" data-pc="">48 Seiten</span>
+  </div>
+
+  <div class="rows" data-rows="" style="flex-shrink: 0">
+    <button type="button" role="switch" class="row" data-sw="auto" aria-checked="true"><span class="vl">Automatisch füllen</span><span class="sw" aria-hidden="true"><span></span></span></button>
+    <div class="row col" data-ao="">
+      <div class="seg" role="group" aria-label="Seitenlayout">
+        <button type="button" class="pl" data-k="lay" data-v="0" aria-pressed="false">Luftig</button>
+        <button type="button" class="pl" data-k="lay" data-v="1" aria-pressed="true">Ausgewogen</button>
+        <button type="button" class="pl" data-k="lay" data-v="2" aria-pressed="false">Dicht</button>
+      </div>
+    </div>
+    <div class="row col" data-ao="">
+      <span class="lb" id="st-ppp">Fotos pro Seite</span>
+      <div class="seg" role="group" aria-labelledby="st-ppp">
+        <button type="button" class="pl" data-k="ppp" data-v="0" aria-pressed="false">1</button>
+        <button type="button" class="pl" data-k="ppp" data-v="1" aria-pressed="false">Minimal</button>
+        <button type="button" class="pl" data-k="ppp" data-v="2" aria-pressed="false">Niedrig</button>
+        <button type="button" class="pl" data-k="ppp" data-v="3" aria-pressed="true">Mittel</button>
+        <button type="button" class="pl" data-k="ppp" data-v="4" aria-pressed="false">Hoch</button>
+      </div>
+    </div>
+    <button type="button" role="switch" class="row" data-ao="" data-sw="txt" aria-checked="true"><span class="vl">Textfelder</span><span class="sw" aria-hidden="true"><span></span></span></button>
+  </div>
+</div>
+
+<div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 20px 34px; background: linear-gradient(to bottom, rgba(255,255,255,0), #FFFFFF 26%)">
+  <a href="P5-BK-edit.dc.html" class="btn" role="button" data-save="" style="width: 100%">Übernehmen</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+// B2b, Design Studio: the autofill controls that used to sit in the "Anpassen" panel of the Bücher screen (Automatisch füllen, Seitenlayout, Fotos pro Seite, Textfelder),
+// now on their own screen behind "Design Studio" in the editor (P5-BK-edit.dc.html), built like B2a. The double page on top follows every control; the page count follows Fotos pro Seite.
+// "Übernehmen" keeps the choices for the visit in the same store as B2a (p5opt, keys st_*); the back arrow drops them. B2a reads st_ppp for its page count. The page counts are example numbers.
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__stuArmed) return; window.__stuArmed = true;
+    var H = null; try { if (window.parent && window.parent !== window && window.parent.document) H = window.parent; } catch (x) { H = null; }
+    var navT = ''; try { navT = (performance.getEntriesByType('navigation')[0] || {}).type || ''; } catch (x) {}
+    if (!H && (navT === 'reload' || !/\.dc\.html/.test(document.referrer || ''))) { try { sessionStorage.removeItem('p5opt'); } catch (x) {} }
+    var optGet = function () { try { if (H) return H.__p5opt || (H.__p5opt = {}); return JSON.parse(sessionStorage.getItem('p5opt')) || {}; } catch (x) { return {}; } };
+    var optSet = function (k, v) { var o = optGet(); o[k] = v; try { if (!H) sessionStorage.setItem('p5opt', JSON.stringify(o)); sessionStorage.setItem('p5optping', String(Date.now())); } catch (x) {} };
+    var DEF = { auto: '1', lay: '1', ppp: '3', txt: '1' }, KEYS = ['auto', 'lay', 'ppp', 'txt'], PAGES = ['96', '72', '56', '48', '40'];
+    // the controls change a draft that only the double page shows; "Übernehmen" writes it to the store, the back arrow drops it
+    var draft = {};
+    var load = function () { var o = optGet(); KEYS.forEach(function (k) { var v = o['st_' + k]; draft[k] = v == null ? DEF[k] : String(v); }); };
+    var get = function (k) { return draft[k]; };
+    var pv = document.querySelector('[data-pv]'), rows = document.querySelector('[data-rows]'), pc = document.querySelector('[data-pc]');
+    var paint = function () {
+      if (!pv || !rows) return;
+      var auto = get('auto') === '1';
+      pv.setAttribute('data-auto', auto ? '1' : '0'); pv.setAttribute('data-lay', get('lay')); pv.setAttribute('data-ppp', get('ppp')); pv.setAttribute('data-txt', get('txt'));
+      if (pc) pc.textContent = (PAGES[+get('ppp')] || PAGES[3]) + ' Seiten';
+      rows.classList.toggle('noauto', !auto);
+      Array.prototype.forEach.call(document.querySelectorAll('[data-sw]'), function (b) { b.setAttribute('aria-checked', get(b.getAttribute('data-sw')) === '1' ? 'true' : 'false'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.pl[data-k]'), function (b) { b.setAttribute('aria-pressed', get(b.getAttribute('data-k')) === b.getAttribute('data-v') ? 'true' : 'false'); });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-ao] button, button[data-ao]'), function (b) { b.disabled = !auto; });
+    };
+    var show = function () { load(); paint(); };
+    document.addEventListener('click', function (e) {
+      var t = e.target && e.target.closest ? e.target : null; if (!t) return;
+      if (t.closest('[data-save]')) { KEYS.forEach(function (k) { optSet('st_' + k, draft[k]); }); return; }
+      var s = t.closest('[data-sw]'); if (s) { var k = s.getAttribute('data-sw'); draft[k] = get(k) === '1' ? '0' : '1'; paint(); return; }
+      var p = t.closest('.pl[data-k]'); if (p) { draft[p.getAttribute('data-k')] = p.getAttribute('data-v'); paint(); }
+    }, true);
+    show();
+    try { var gone = false; new IntersectionObserver(function (es) { es.forEach(function (en) { if (!en.isIntersecting) gone = true; else if (gone) { gone = false; show(); } }); }).observe(document.documentElement); } catch (x) {}
+    window.addEventListener('pageshow', function (e) { if (e && e.persisted) show(); });
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

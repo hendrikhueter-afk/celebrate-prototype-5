@@ -3,7 +3,7 @@
   "canvas_page_id": "page-05wqw8",
   "artifact_url": "https://claude.ai/artifact/NGqf2vC6aPRDVKcCaJAGR1",
   "site_url": "https://hendrikhueter-afk.github.io/celebrate-prototype-5/",
-  "start_screen": "P5-splashA-2.dc.html",
+  "start_screen": "P5-splashA-2-inv.dc.html",
   "screen_width": 390,
   "min_height_default": 640,
   "min_height": {
@@ -15,6 +15,7 @@
     "V3-LM2-B2c-zgrf.dc.html": 700,
     "P5W-1.dc.html": 760,
     "V3-LM2-ob-00E-s4.dc.html": 790,
+    "V3-LM2-ob-00E-s4-chat.dc.html": 790,
     "P5I-A1-s1.dc.html": 790,
     "P5I-A1-s2.dc.html": 790,
     "P5I-A1-s3.dc.html": 790
